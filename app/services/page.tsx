@@ -5,13 +5,15 @@ import React from "react";
 
 function page() {
   return (
-    <section className="px-4">
-      <div>
-        <h2 className="text-6xl font-bold pt-30 text-center py-20">SERVICES</h2>
+    <section className="px-4 bg-[#201f1f]">
+      <div className="sm:py-15">
+        <h2 className="text-6xl font-bold pt-30 text-center py-20 sm:text-9xl sm:font-light">
+          SERVICES
+        </h2>
       </div>
 
       {/* service card */}
-      <div className="flex flex-col gap-10">
+      <div className="flex flex-col gap-10 sm:flex-row sm:flex-wrap sm:justify-center *:cursor-pointer">
         <ServicesCard
           id="01"
           image="/home-services/service-01.webp"
@@ -64,7 +66,7 @@ function page() {
         </h2>
         <div className="grid grid-cols-2 gap-4 place-items-center mt-10">
           {BrandsPng.map((brand) => (
-            <div key={brand.alt} className="h-20 w-20 relative">
+            <div key={brand.alt} className="h-20 w-20 relative sm:h-30 sm:w-30">
               <Image
                 className="invert object-contain"
                 src={brand.image}

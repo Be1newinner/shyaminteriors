@@ -43,27 +43,52 @@ const Navbar = () => {
           >
             <X />
           </button>
-          <ul className="flex flex-col gap-4 text-4xl font-bold *:text-[#666666] sm:text-6xl">
-            <li className="cursor-pointer" onClick={() => setOpen(false)}>
-              <Link href="/">Home</Link>
+          <ul className="flex flex-col gap-9 text-4xl font-bold *:text-[#666666] sm:text-6xl">
+            <li>
+              <Link
+                className="cursor-pointer inline-block hover:text-white transition-all duration-300"
+                onClick={() => setOpen(false)}
+                href="/"
+              >
+                Home Interior
+              </Link>
             </li>
-            <li className="cursor-pointer" onClick={() => setOpen(false)}>
-              <Link href="/about">About</Link>
+            <li>
+              <Link
+                className="cursor-pointer inline-block hover:text-white transition-all duration-300"
+                onClick={() => setOpen(false)}
+                href="/about"
+              >
+                About
+              </Link>
             </li>
-            <li className="cursor-pointer" onClick={() => setOpen(false)}>
-              <Link href="/services">Services</Link>
+            <li>
+              <Link
+                className="cursor-pointer inline-block hover:text-white transition-all duration-300"
+                onClick={() => setOpen(false)}
+                href="/services"
+              >
+                Services
+              </Link>
             </li>
-            <li className="cursor-pointer" onClick={() => setOpen(false)}>
-              <Link href="/home-interior">Home Interior</Link>
+
+            <li>
+              <Link
+                className="cursor-pointer inline-block hover:text-white transition-all duration-300"
+                onClick={() => setOpen(false)}
+                href="/projects"
+              >
+                Projects
+              </Link>
             </li>
-            <li className="cursor-pointer" onClick={() => setOpen(false)}>
-              <Link href="/home-architect">Home Architect</Link>
-            </li>
-            <li className="cursor-pointer" onClick={() => setOpen(false)}>
-              <Link href="/projects">Projects</Link>
-            </li>
-            <li className="cursor-pointer" onClick={() => setOpen(false)}>
-              <Link href="/contact">Contact</Link>
+            <li>
+              <Link
+                className="cursor-pointer inline-block hover:text-white transition-all duration-300"
+                onClick={() => setOpen(false)}
+                href="/contact"
+              >
+                Contact
+              </Link>
             </li>
           </ul>
         </div>
