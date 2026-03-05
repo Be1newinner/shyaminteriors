@@ -1,0 +1,85 @@
+[
+  {
+    "slug": "artwork-design",
+    "title": "ARTWORK DESIGN",
+    "heroImage": "/home-services/service-01.webp",
+    "overview": "Artwork design focuses on creating functional storage solutions while maintaining aesthetic harmony in interior spaces. Our cabinetry solutions are designed to maximize space efficiency, provide durability, and enhance the visual appeal of kitchens, living rooms, and offices.",
+    "process": "Our cabinetry design process begins with understanding the client's storage requirements and spatial layout. We create custom designs that balance functionality with elegance, using high-quality materials and modern finishes.  From concept sketches to final installation, every detail is crafted to ensure seamless integration with the interior environment.",
+    "images": [
+      "/home-services/service-01.webp",
+      "/home-services/service-02.webp",
+      "/home-services/service-03.webp"
+    ],
+    "awardsText": "Our cabinetry designs combine storage efficiency with elegance.",
+    "video": "/assets/cabinetry.mp4"
+  },
+
+  {
+    "slug": "cabinetry-design",
+    "title": "CABINETRY DESIGN",
+    "heroImage": "/home-services/service-02.webp",
+    "overview": "Cabinetry design focuses on creating functional storage solutions while maintaining aesthetic harmony in interior spaces. Our cabinetry solutions are designed to maximize space efficiency, provide durability, and enhance the visual appeal of kitchens, living rooms, and offices.",
+
+    "process": "Our cabinetry design process begins with understanding the client's storage requirements and spatial layout. We create custom designs that balance functionality with elegance, using high-quality materials and modern finishes.  From concept sketches to final installation, every detail is crafted to ensure seamless integration with the interior environment.",
+
+    "images": [
+      "/home-services/service-02.webp",
+      "/home-services/service-03.webp",
+      "/home-services/service-04.webp"
+    ],
+
+    "awardsText": "Our cabinetry designs combine storage efficiency with elegance.",
+    "video": "/assets/cabinetry.mp4"
+  },
+  {
+    "slug": "custom-furniture",
+    "title": "CUSTOM FURNITURE",
+    "heroImage": "/home-services/service-03.webp",
+    "overview": "Custom furniture design allows us to create unique pieces tailored to your space, style, and functional needs. Each piece is crafted with precision to enhance comfort, practicality, and the character of your interiors.",
+
+    "process": "Our process begins with understanding your design preferences, space dimensions, and lifestyle needs. We then create bespoke furniture concepts that combine modern aesthetics with durable craftsmanship. From material selection to final finishing, each step ensures that the furniture piece is both visually stunning and built to last.",
+
+    "images": [
+      "/home-services/service-03.webp",
+      "/home-services/service-04.webp",
+      "/home-services/service-05.webp"
+    ],
+
+    "awardsText": "Our team creates furniture pieces that are both functional and artistic.",
+    "video": "/assets/custom-furniture.mp4"
+  },
+  {
+    "slug": "lighting-design",
+    "title": "LIGHTING DESIGN",
+    "heroImage": "/home-services/service-04.webp",
+    "overview": "Lighting design plays a crucial role in shaping the atmosphere of a space. Our approach combines functional lighting with creative design elements to enhance mood, highlight architectural features, and improve usability.",
+
+    "process": "We start by analyzing the spatial layout and natural lighting conditions. Based on this, we design layered lighting solutions including ambient, task, and accent lighting.  Carefully selected fixtures and lighting placements ensure the perfect balance between style, comfort, and energy efficiency.",
+
+    "images": [
+      "/home-services/service-04.webp",
+      "/home-services/service-05.webp",
+      "/home-services/service-01.webp"
+    ],
+
+    "awardsText": "Thoughtfully designed lighting enhances the beauty and functionality of every interior.",
+    "video": "/assets/lighting-design.mp4"
+  },
+  {
+    "slug": "wall-covering",
+    "title": "WALL COVERING",
+    "heroImage": "/home-services/service-05.webp",
+    "overview": "Wall covering solutions bring personality, texture, and depth to interior spaces. From wallpapers to decorative panels, our designs transform plain walls into visually engaging design elements.",
+
+    "process": "Our design process involves selecting materials, textures, and patterns that complement the overall interior theme. Whether it’s modern wallpapers, textured panels, or artistic wall treatments, every detail is carefully curated.  The final installation enhances the visual appeal of the space while maintaining durability and easy maintenance.",
+
+    "images": [
+      "/home-services/service-05.webp",
+      "/home-services/service-05.webp",
+      "/home-services/service-01.webp"
+    ],
+
+    "awardsText": "Our wall covering designs add character and sophistication to interiors.",
+    "video": "/assets/wall-covering.mp4"
+  }
+]

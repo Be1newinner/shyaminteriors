@@ -15,6 +15,7 @@ function page() {
       {/* service card */}
       <div className="flex flex-col gap-10 sm:flex-row sm:flex-wrap sm:justify-center *:cursor-pointer">
         <ServicesCard
+          slug="artwork-design"
           id="01"
           image="/home-services/service-01.webp"
           title="ARTWORK DESIGN"
@@ -24,6 +25,7 @@ function page() {
         />
 
         <ServicesCard
+          slug="cabinetry-design"
           id="02"
           image="/home-services/service-01.webp"
           title="CABINETRY DESIGN"
@@ -33,6 +35,7 @@ function page() {
         />
 
         <ServicesCard
+          slug="custom-furniture"
           id="03"
           image="/home-services/service-01.webp"
           title="CUSTOM FURNITURE"
@@ -42,6 +45,7 @@ function page() {
         />
 
         <ServicesCard
+          slug="lighting-design"
           id="04"
           image="/home-services/service-01.webp"
           title="LIGHTING DESIGN"
@@ -51,6 +55,7 @@ function page() {
         />
 
         <ServicesCard
+          slug="wall-covering"
           id="05"
           image="/home-services/service-01.webp"
           title="WALL COVERING"
