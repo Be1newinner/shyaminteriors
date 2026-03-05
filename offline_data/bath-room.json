@@ -1,0 +1,69 @@
+[
+    {
+        "slug": "bath-room",
+        "title": "Bath Room",
+        "description": [
+            {
+                "subtitle": "About the project",
+                "content": [
+                    "Welcome to \"Transforming Spaces, \" a captivating journey into the world of interior design. In this demo project, we will delve into the exciting realm of creating harmonious and functional interiors that reflect the unique personalities and lifestyles of clients. Join us as we explore the artistry, creativity, and technical skills that define the work of an interior designer.",
+                    "In this demo project, we will provide an overview of the interior design process, showcasing the various stages involved in crafting stunning and personalized living and working spaces. From conceptualization to execution, you will gain insights into the strategies, techniques, and considerations that guide an interior designer's decisions."
+                ]
+            },
+            {
+                "subtitle": "Design Concept",
+                "content": [
+                    "With a goal to refine the established vegan Mexican restaurants’ visual identity and language, we set out to create a brand that imagining the warm feeling of being in your Mother’s kitchen. The many hands that are involved in the cooking process and the hands that pass along recipes through generations.",
+                    "Selection of furniture, materials, and finishes",
+                    "Creating 3D renderings and visualizations",
+                    "Collaborating with architects, contractors, and other professionals"
+                ]
+            },
+            {
+                "subtitle": "Finishing & Touches",
+                "content": [
+                    "Interior design is a captivating blend of artistry, functionality, and client-centered creativity. This demo project provides a glimpse into the multifaceted world of interior designers, where they transform ordinary spaces into extraordinary living experiences. Whether you're an aspiring designer, a homeowner looking for inspiration, or simply curious about the process, \"Transforming Spaces\" promises to offer valuable insights.",
+                    "In this demo project, we will provide an overview of the interior design process, showcasing the various stages involved in crafting stunning and personalized living and working spaces. From conceptualization to execution, you will gain insights into the strategies, techniques."
+                ]
+            }
+        ],
+        "images": [
+            {
+                "src": "/images/project/bath_room/p1.webp",
+                "alt": "Drawing Room",
+                "width": "1720px",
+                "height": "877.91px"
+            },
+            {
+                "src": "/images/project/common/p2.webp",
+                "alt": "Drawing Room",
+                "width": "850px",
+                "height": "950px"
+            },
+            {
+                "src": "/images/project/common/p3.webp",
+                "alt": "Drawing Room",
+                "width": "850px",
+                "height": "950px"
+            },
+            {
+                "src": "/images/project/common/p4.webp",
+                "alt": "Drawing Room",
+                "width": "1720px",
+                "height": "900px"
+            },
+            {
+                "src": "/images/project/common/p5.webp",
+                "alt": "Drawing Room",
+                "width": "850px",
+                "height": "950px"
+            },
+            {
+                "src": "/images/project/common/p6.webp",
+                "alt": "Drawing Room",
+                "width": "850px",
+                "height": "950px"
+            }
+        ]
+    }
+]
