@@ -81,14 +81,14 @@ export default function ProjectPage() {
             {/* Staggered two-column grid */}
             <div className="flex flex-col md:flex-row gap-8 md:gap-12 lg:gap-16 items-start">
                 {/* Left column — starts at top */}
-                <div className="w-full md:w-1/2">
+                <div className="w-full md:w-1/2 flex flex-col items-center">
                     {leftCol.map((p) => (
                         <ProjectCard key={p.src} {...p} />
                     ))}
                 </div>
 
                 {/* Right column — offset down to create stagger */}
-                <div className="w-full md:w-1/2 md:mt-32">
+                <div className="w-full md:w-1/2 md:mt-32 flex flex-col items-center">
                     {rightCol.map((p) => (
                         <ProjectCard key={p.src} {...p} />
                     ))}
