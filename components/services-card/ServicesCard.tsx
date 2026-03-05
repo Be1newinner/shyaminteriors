@@ -17,7 +17,7 @@ function ServicesCard({
   services,
 }: IserviceCardProps) {
   return (
-    <div className="flex flex-col gap-5 pt-15 border-t-[0.5px] border-[#666666] py-2 relative">
+    <div className="flex flex-col gap-5 pt-15 border-t-[0.5px] border-[#666666] py-2 relative sm:max-w-[400px]">
       <p className="text-xl font-bold font-sans text-[#666666]">{id}</p>
       <div className="h-[200px] w-full relative">
         <Image className="object-cover" src={image} alt={title} fill />
