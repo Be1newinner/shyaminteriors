@@ -1,8 +1,11 @@
+"use client";
 import { Facebook, Instagram, Linkedin, Twitter } from "lucide-react";
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import WorkTogether from "../work-together/WorkTogether";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 function Footer() {
   return (
     <footer className="">

@@ -1,7 +1,8 @@
+"use client";
 import { BrandsPng } from "@/components/notable-brands/Brands";
 import ServicesCard from "@/components/services-card/ServicesCard";
 import Image from "next/image";
-import React from "react";
+import React, { useEffect, useRef } from "react";
 
 function page() {
   return (
@@ -13,7 +14,7 @@ function page() {
       </div>
 
       {/* service card */}
-      <div className="flex flex-col gap-10 sm:flex-row sm:flex-wrap sm:justify-center *:cursor-pointer">
+      <div className="flex flex-col gap-10 sm:flex-row sm:flex-wrap sm:justify-center ">
         <ServicesCard
           slug="artwork-design"
           id="01"

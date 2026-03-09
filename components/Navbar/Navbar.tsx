@@ -11,10 +11,10 @@ const Navbar = () => {
     <div className="absolute top-0 z-50 w-full">
       <nav className="flex justify-between items-center px-5 py-5 relative sm:px-30">
         {/* logo part */}
-        <div className="relative h-20 w-30">
+        <div className="relative h-30 w-30  ">
           <Image
-            className="object-contain"
-            src="/navigation/site-logo-light.webp"
+            className="object-cover"
+            src="/navigation/logo.png"
             alt="logo"
             fill
           />
