@@ -31,6 +31,21 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="128x128"
+          href="favicon-128x128.png"
+        />
+        <link
+          rel="apple-touch-icon"
+          sizes="180x180"
+          href="apple-touch-icon.png"
+        />
+        <meta name="msapplication-TileImage" content="mstile-144x144.png" />
+        <link rel="shortcut icon" href="favicon.ico" />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${tekoSans.variable} antialiased`}
       >

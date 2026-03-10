@@ -71,7 +71,7 @@ function FeatureSection() {
         opacity: 0,
         duration: 1,
         ease: "power3.out",
-        delay: index * 0.35, // makes them appear one by one
+        delay: index * 0.15, // makes them appear one by one
         scrollTrigger: {
           trigger: card,
           start: "top 85%",
