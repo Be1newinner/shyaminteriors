@@ -1,7 +1,158 @@
+"use client";
 import Image from "next/image";
-import React from "react";
-
+import React, { useRef } from "react";
+import gsap from "gsap";
+import { useEffect } from "react";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+gsap.registerPlugin(ScrollTrigger);
 function HeroSection() {
+  const titleRef = useRef<HTMLHeadingElement>(null);
+  const paraRef = useRef<HTMLHeadingElement>(null);
+
+  const aboutImageRef = useRef<HTMLDivElement>(null);
+  const aboutTitleRef = useRef<HTMLHeadingElement>(null);
+  const aboutDescRef = useRef<HTMLParagraphElement>(null);
+  const aboutLogoRef = useRef<HTMLImageElement>(null);
+  const aboutStudioRef = useRef<HTMLParagraphElement>(null);
+
+  const titleText = "INTERIOR DESIGNER";
+
+  useEffect(() => {
+    //title animation
+    const letters = titleRef.current?.querySelectorAll(".letter");
+
+    if (letters && letters.length > 0) {
+      gsap.from(letters, {
+        y: 20,
+        opacity: 0,
+        duration: 0.9,
+        ease: "power3.out",
+        stagger: 0.05,
+      });
+    }
+  }, []);
+
+  //para which is top of title animation
+  const paraText = "EXPERIENCED AND CREATIVE";
+
+  useEffect(() => {
+    //para animation
+    const letters = paraRef.current?.querySelectorAll(".letter");
+
+    if (letters && letters.length > 0) {
+      gsap.from(letters, {
+        y: 20,
+        opacity: 0,
+        duration: 0.5,
+        ease: "power3.out",
+        stagger: 0.02,
+      });
+    }
+  }, []);
+
+  // about section part
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      // image reveal
+      if (aboutImageRef.current) {
+        gsap.fromTo(
+          aboutImageRef.current,
+          { clipPath: "inset(0 100% 0 0)" },
+          {
+            clipPath: "inset(0 0% 0 0)",
+            duration: 1.7,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: aboutImageRef.current,
+              start: "top 50%",
+            },
+          },
+        );
+      }
+
+      // title letters
+      if (aboutTitleRef.current) {
+        const letters = aboutTitleRef.current.querySelectorAll("span");
+
+        gsap.fromTo(
+          letters,
+          { opacity: 0, y: 30 },
+          {
+            opacity: 1,
+            y: 0,
+            stagger: 0.05,
+            duration: 1.2,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: aboutTitleRef.current,
+              start: "top 50%",
+            },
+          },
+        );
+      }
+
+      // description
+      if (aboutDescRef.current) {
+        gsap.fromTo(
+          aboutDescRef.current,
+          { opacity: 0, y: 60 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 1.2,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: aboutDescRef.current,
+              start: "top 50%",
+            },
+          },
+        );
+      }
+
+      // logo
+      if (aboutLogoRef.current) {
+        gsap.fromTo(
+          aboutLogoRef.current,
+          { opacity: 0, y: 60 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 1.2,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: aboutLogoRef.current,
+              start: "top 85%",
+            },
+          },
+        );
+      }
+
+      // studio text
+      if (aboutStudioRef.current) {
+        const letters = aboutStudioRef.current.querySelectorAll("span");
+
+        gsap.fromTo(
+          letters,
+          { opacity: 0, y: 20 },
+          {
+            opacity: 1,
+            y: 0,
+            stagger: 0.04,
+            duration: 1.2,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: aboutStudioRef.current,
+              start: "top 85%",
+            },
+          },
+        );
+      }
+    });
+
+    return () => ctx.revert();
+  }, []);
+
   return (
     <div className="relative">
       <div className=" bg-[url('/HomeLanding/dot-bg.webp')] bg-cover w-full relative sm:pb-30">
@@ -19,18 +170,34 @@ function HeroSection() {
 
             {/* text part */}
             <div className="w-full absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col gap-15 text-center">
-              <p className="text-2xl font-semibold">EXPERIENCED AND CREATIVE</p>
-              <h1 className="text-7xl font-bold sm:text-9xl">
-                INTERIOR <br className="sm:hidden" /> DESIGNER
+              <p ref={paraRef} className="text-2xl font-semibold">
+                {paraText.split("").map((char, i) => (
+                  <span key={i} className="letter inline-block">
+                    {char === " " ? "\u00A0" : char}
+                  </span>
+                ))}
+              </p>
+              <h1
+                ref={titleRef}
+                className="text-7xl font-bold sm:text-9xl overflow-hidden"
+              >
+                {titleText.split("").map((char, i) => (
+                  <span key={i} className="letter inline-block">
+                    {char === " " ? "\u00A0" : char}
+                  </span>
+                ))}
               </h1>
             </div>
           </div>
         </div>
         {/* profile image section */}
 
-        <div className="flex flex-col gap-20 sm:flex-row sm:h-screen  sm:px-30 sm:mt-30">
+        <section className="flex flex-col gap-20 sm:flex-row sm:h-[120svh]  sm:px-30 sm:mt-30">
           {/* profile image part */}
-          <div className="w-full h-[60vh] relative sm:h-full sm:w-1/2">
+          <div
+            ref={aboutImageRef}
+            className="w-full h-[60vh] relative sm:h-full sm:w-1/2"
+          >
             <Image
               src="/HomeLanding/about-thumb-1.webp"
               alt="hero-section"
@@ -40,10 +207,17 @@ function HeroSection() {
 
           {/* profile about part */}
           <div className="flex flex-col gap-10 px-4 sm:w-1/2 sm:py-20">
-            <h2 className="text-6xl">
-              JANATHAN <br className="sm:hidden" /> ALEN
+            <h2 ref={aboutTitleRef} className="text-6xl">
+              {"JANATHAN ALEN".split("").map((letter, i) => (
+                <span key={i} className="inline-block opacity-0">
+                  {letter === " " ? "\u00A0" : letter}
+                </span>
+              ))}
             </h2>
-            <p className="font-sans text-xl text-left text-[#666666] sm:max-w-[80%]">
+            <p
+              ref={aboutDescRef}
+              className="font-sans text-xl text-left text-[#666666] sm:max-w-[80%]"
+            >
               Everything happens for a reason to change so that you can learn to
               let go, things go wrong so that you appreciate them. When
               necessary we offer the best dental restorative materials and
@@ -51,17 +225,24 @@ function HeroSection() {
               treatment, and us to see detail not available to the naked eye.
             </p>
             {/* interior studeio abuot */}
-            <div className="flex flex-col gap-5 sm:mt-20">
+            <div className="flex flex-col gap-5 sm:mt-20 sm:gap-10">
               <Image
+                ref={aboutLogoRef}
                 src="/HomeLanding/interior-studio-about.webp"
                 alt="interior-studio-about"
                 width={150}
                 height={150}
               />
-              <p className="text-2xl">SHYAN INTERIOR STUDIO</p>
+              <p ref={aboutStudioRef} className="text-2xl">
+                {"SHYAN INTERIOR STUDIO".split("").map((letter, i) => (
+                  <span key={i} className="inline-block opacity-0">
+                    {letter === " " ? "\u00A0" : letter}
+                  </span>
+                ))}
+              </p>
             </div>
           </div>
-        </div>
+        </section>
       </div>
     </div>
   );

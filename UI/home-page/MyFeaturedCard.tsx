@@ -16,8 +16,15 @@ function MyFeaturedCard({
 }) {
   return (
     <div>
-      <div className={`h-[60vh] w-full relative bg-sky-300 ${className}`}>
-        <Image className="object-cover" src={image} alt={title} fill />
+      <div
+        className={`h-[60vh] w-full relative overflow-hidden cursor-pointer ${className}`}
+      >
+        <Image
+          className="object-cover transition-transform duration-700 hover:scale-110"
+          src={image}
+          alt={title}
+          fill
+        />
       </div>
 
       <div className="py-10 flex flex-col gap-4">

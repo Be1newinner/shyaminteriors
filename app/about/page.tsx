@@ -13,134 +13,119 @@ function About() {
   const studioDescriptionRef = useRef<HTMLParagraphElement>(null);
   const arrowRef = useRef<HTMLDivElement>(null);
 
-  //image animation
   useEffect(() => {
-    if (!imageRef.current) return;
+    const ctx = gsap.context(() => {
+      // image animation
+      if (imageRef.current) {
+        gsap.fromTo(
+          imageRef.current,
+          { clipPath: "inset(0 100% 0 0)" },
+          {
+            clipPath: "inset(0 0% 0 0)",
+            duration: 1.7,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: imageRef.current,
+              start: "top 60%",
+              toggleActions: "play none none none",
+            },
+          },
+        );
+      }
 
-    gsap.fromTo(
-      imageRef.current,
-      { clipPath: "inset(0 100% 0 0)" },
-      {
-        clipPath: "inset(0 0% 0 0)",
-        duration: 1.7,
-        ease: "power3.out",
-        scrollTrigger: {
-          trigger: imageRef.current,
-          start: "top 40%",
-          toggleActions: "play none none none", // play once
-        },
-      },
-    );
-  }, []);
+      // text animation
+      if (titleRef.current) {
+        const letters = titleRef.current.querySelectorAll("span");
+        gsap.to(letters, {
+          opacity: 1,
+          stagger: 0.07,
+          duration: 1,
+          ease: "power3.out",
+        });
+      }
 
-  //text animation
-  useEffect(() => {
-    if (!titleRef.current) return;
+      // arrow animation
+      if (arrowRef.current) {
+        gsap.fromTo(
+          arrowRef.current,
+          { opacity: 0, y: 40 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 1.5,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: arrowRef.current,
+              start: "top 60%",
+              toggleActions: "play none none none",
+            },
+          },
+        );
+      }
 
-    const letters = titleRef.current.querySelectorAll("span");
+      // logo animation
+      if (logoRef.current) {
+        gsap.fromTo(
+          logoRef.current,
+          { opacity: 0, y: 60 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 1.5,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: logoRef.current,
+              start: "top 70%",
+              toggleActions: "play none none none",
+            },
+          },
+        );
+      }
 
-    gsap.to(letters, {
-      opacity: 1,
-      stagger: 0.07,
-      duration: 1,
-      ease: "power3.out",
+      // studio title animation
+      if (studioNameRef.current) {
+        const letters = studioNameRef.current.querySelectorAll("span");
+        gsap.fromTo(
+          letters,
+          { opacity: 0, y: 30 },
+          {
+            opacity: 1,
+            y: 0,
+            stagger: 0.05,
+            duration: 0.6,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: studioNameRef.current,
+              start: "top 70%",
+              toggleActions: "play none none none",
+            },
+          },
+        );
+      }
+
+      // studio description animation
+      if (studioDescriptionRef.current) {
+        gsap.fromTo(
+          studioDescriptionRef.current,
+          { opacity: 0, y: 80 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 1.5,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: studioDescriptionRef.current,
+              start: "top 80%",
+              toggleActions: "play none none none",
+            },
+          },
+        );
+      }
     });
-  }, []);
 
-  //arrow animation
-  useEffect(() => {
-    if (!arrowRef.current) return;
+    ScrollTrigger.refresh();
 
-    gsap.fromTo(
-      arrowRef.current,
-      {
-        opacity: 0,
-        y: 40,
-      },
-      {
-        opacity: 1,
-        y: 0,
-        duration: 1.5,
-        ease: "power3.out",
-        scrollTrigger: {
-          trigger: arrowRef.current,
-          start: "top 40%",
-          toggleActions: "play none none none", // play once
-        },
-      },
-    );
-  }, []);
-
-  //logo animation
-  useEffect(() => {
-    if (!logoRef.current) return;
-
-    gsap.fromTo(
-      logoRef.current,
-      {
-        opacity: 0,
-        y: 60,
-      },
-      {
-        opacity: 1,
-        y: 0,
-        duration: 1.5,
-        ease: "power3.out",
-        scrollTrigger: {
-          trigger: logoRef.current,
-          start: "top 50%",
-          toggleActions: "play none none none", // play once
-        },
-      },
-    );
-  }, []);
-
-  //studio title animation
-  useEffect(() => {
-    if (!studioNameRef.current) return;
-
-    const letters = studioNameRef.current.querySelectorAll("span");
-
-    gsap.fromTo(
-      letters,
-      { opacity: 0, y: 30 },
-      {
-        opacity: 1,
-        y: 0,
-        stagger: 0.05,
-        duration: 0.6,
-        ease: "power3.out",
-        scrollTrigger: {
-          trigger: studioNameRef.current,
-          start: "top 50%",
-          toggleActions: "play none none none",
-        },
-      },
-    );
-  }, []);
-
-  //studio description animation
-  useEffect(() => {
-    if (!studioDescriptionRef.current) return;
-
-    gsap.fromTo(
-      studioDescriptionRef.current,
-      {
-        opacity: 0,
-        y: 80,
-      },
-      {
-        opacity: 1,
-        y: 0,
-        duration: 1.5,
-        ease: "power3.out",
-        scrollTrigger: {
-          trigger: studioDescriptionRef.current,
-          start: "top 60%",
-          toggleActions: "play none none none", // play once
-        },
-      },
-    );
+    return () => ctx.revert();
   }, []);
 
   return (

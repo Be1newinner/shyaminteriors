@@ -4,7 +4,12 @@ import ServicesCard from "@/components/services-card/ServicesCard";
 import Image from "next/image";
 import React, { useEffect, useRef } from "react";
 
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
 function page() {
+  useEffect(() => {
+    ScrollTrigger.refresh();
+  }, []);
   return (
     <section className="px-4 bg-[#201f1f]">
       <div className="sm:py-15">

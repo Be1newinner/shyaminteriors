@@ -1,15 +1,64 @@
 "use client";
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { myServices } from "./myServices";
 import Image from "next/image";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+gsap.registerPlugin(ScrollTrigger);
 function MyExpertiseServices() {
+  const titleRef = useRef<HTMLHeadingElement>(null);
+  const servicesRef = useRef<HTMLHeadingElement>(null);
+  //title and service animation
+  useEffect(() => {
+    const letters = titleRef.current?.querySelectorAll(".letter");
+
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: titleRef.current,
+        start: "top 80%",
+        toggleActions: "play none none none",
+      },
+    });
+
+    if (letters) {
+      tl.from(letters, {
+        y: 20,
+        opacity: 0,
+        duration: 0.9,
+        stagger: 0.07,
+        ease: "power3.out",
+      });
+    }
+
+    if (servicesRef.current) {
+      tl.from(
+        servicesRef.current,
+        {
+          y: 40,
+          opacity: 0,
+          duration: 0.8,
+          ease: "power3.out",
+        },
+        "-=0.4",
+      );
+    }
+  }, []);
+
   const [currentService, setCurrentService] = React.useState(myServices[0]);
   const isActive = (serviceId: string) => currentService.id === serviceId;
   return (
     <section className="px-4 py-10 bg-[#212125] sm:py-30 sm:px-30">
       <div className="flex flex-col gap-5 pb-20">
-        <h2 className="text-3xl font-bold">MY EXPERTISE</h2>
-        <span className="text-6xl sm:text-9xl">SERVICES</span>
+        <h2 ref={titleRef} className="text-3xl font-bold">
+          {"MY EXPERTISE".split("").map((char, i) => (
+            <span key={i} className="letter inline-block">
+              {char === " " ? "\u00A0" : char}
+            </span>
+          ))}
+        </h2>
+        <span ref={servicesRef} className="text-6xl sm:text-9xl">
+          SERVICES
+        </span>
       </div>
 
       <div className="sm:flex sm:gap-30">

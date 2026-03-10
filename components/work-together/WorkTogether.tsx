@@ -29,24 +29,28 @@ function WorkTogether() {
   //text animation
 
   useEffect(() => {
-    gsap.registerPlugin(ScrollTrigger);
-
     if (!textRef.current || !containerRef.current) return;
 
-    const letters = textRef.current.querySelectorAll("span");
-    if (letters.length > 0) {
-      gsap.to(letters, {
-        color: "#ffffff",
-        stagger: 1.5,
-        ease: "none",
-        scrollTrigger: {
-          trigger: containerRef.current,
-          start: "top 80%",
-          end: "bottom 100%",
-          scrub: true,
-        },
-      });
-    }
+    const ctx = gsap.context(() => {
+      const letters = textRef.current?.querySelectorAll("span");
+      if (letters && letters.length > 0) {
+        gsap.to(letters, {
+          color: "#ffffff",
+          stagger: 1.5,
+          ease: "none",
+          scrollTrigger: {
+            trigger: containerRef.current,
+            start: "top 80%",
+            end: "bottom 100%",
+            scrub: true,
+          },
+        });
+      }
+    }, containerRef);
+
+    ScrollTrigger.refresh();
+
+    return () => ctx.revert();
   }, []);
 
   const renderLetters = (phrase: string) => {

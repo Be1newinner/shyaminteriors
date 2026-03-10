@@ -31,18 +31,24 @@ function ServicesCard({
   useEffect(() => {
     if (!cardRef.current) return;
 
-    gsap.from(cardRef.current, {
-      opacity: 0,
-      y: 100,
-      duration: 1.3,
-      ease: "power3.out",
-      scrollTrigger: {
-        trigger: cardRef.current,
-        start: "top 80%",
-        end: "bottom 50%",
-        toggleActions: "play none none reverse",
-      },
+    const ctx = gsap.context(() => {
+      gsap.from(cardRef.current, {
+        opacity: 0,
+        y: 100,
+        duration: 1.3,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: cardRef.current,
+          start: "top 85%",
+          toggleActions: "play none none reverse",
+        },
+      });
     });
+
+    // Refresh scroll trigger to ensure it works after navigation
+    ScrollTrigger.refresh();
+
+    return () => ctx.revert();
   }, []);
 
   return (

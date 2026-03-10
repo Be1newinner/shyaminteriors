@@ -1,17 +1,127 @@
-import React from "react";
+"use client";
+import React, { useEffect, useRef } from "react";
 import MyfeaturedCard from "../../UI/home-page/MyFeaturedCard";
+import gsap from "gsap";
 
 function FeatureSection() {
+  const titleRef = useRef<HTMLHeadingElement>(null);
+  const workRef = useRef<HTMLHeadingElement>(null);
+  const workParaRef = useRef<HTMLHeadingElement>(null);
+  const cardsRef = useRef<HTMLDivElement>(null);
+  const countRef = useRef<HTMLHeadingElement>(null);
+
+  const letters = titleRef.current?.querySelectorAll(".letter");
+
+  useEffect(() => {
+    const letters = titleRef.current?.querySelectorAll(".letter");
+
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: titleRef.current,
+        start: "top 80%",
+        toggleActions: "play none none none",
+      },
+    });
+
+    if (letters && letters.length > 0) {
+      tl.from(letters, {
+        y: 20,
+        opacity: 0,
+        duration: 0.9,
+        ease: "power3.out",
+        stagger: 0.07,
+      });
+    }
+
+    if (workRef.current) {
+      tl.from(
+        workRef.current,
+        {
+          y: 40,
+          opacity: 0,
+          duration: 0.8,
+          ease: "power3.out",
+        },
+        "-=0.4", // overlap animation slightly
+      );
+    }
+
+    if (workParaRef.current) {
+      tl.from(
+        workParaRef.current,
+        {
+          y: 40,
+          opacity: 0,
+          duration: 0.8,
+          ease: "power3.out",
+        },
+        "-=0.4",
+      );
+    }
+  }, []);
+
+  // cards component animation
+
+  useEffect(() => {
+    const cards = gsap.utils.toArray(cardsRef.current?.children || []);
+
+    cards.forEach((card: any, index) => {
+      gsap.from(card, {
+        y: 80,
+        opacity: 0,
+        duration: 1,
+        ease: "power3.out",
+        delay: index * 0.35, // makes them appear one by one
+        scrollTrigger: {
+          trigger: card,
+          start: "top 85%",
+          end: "bottom 15%",
+          toggleActions: "play none none none",
+        },
+      });
+    });
+  }, []);
+
+  //counting effect
+
+  useEffect(() => {
+    const obj = { value: 0 };
+
+    gsap.to(obj, {
+      value: 23,
+      duration: 1.5,
+      ease: "none",
+      scrollTrigger: {
+        trigger: countRef.current,
+        start: "top 85%",
+        toggleActions: "play none none none",
+      },
+      onUpdate: () => {
+        if (countRef.current) {
+          countRef.current.innerText = Math.floor(obj.value).toString();
+        }
+      },
+    });
+  }, []);
+
   return (
     <section className="px-4 mt-10 sm:px-20 bg-[#1f1f1f] py-10 sm:py-20">
       {/* text part */}
       <div className="flex flex-col gap-10 sm:flex-row sm:gap-30 sm:items-center py-10 sm:py-20">
         <div className="flex flex-col gap-5 sm:gap-10">
-          <h2 className="text-3xl font-bold">MY FEATURED</h2>
-          <span className="text-7xl font-semibold sm:text-9xl">WORK</span>
+          <h2 ref={titleRef} className="text-3xl font-bold overflow-hidden">
+            {"MY FEATURED".split("").map((char, i) => (
+              <span key={i} className="letter inline-block">
+                {char === " " ? "\u00A0" : char}
+              </span>
+            ))}
+          </h2>
+          <span ref={workRef} className="text-7xl font-semibold sm:text-9xl">
+            WORK
+          </span>
         </div>
 
-        <div className="flex flex-col gap-5 sm:max-w-[300px]">
+        <div ref={workParaRef} className="flex flex-col gap-5 sm:max-w-[300px]">
           <span
             className="relative inline-flex items-center gap-2 text-[#666666]
             after:content-[''] after:block after:w-10 after:h-[1px]
@@ -26,7 +136,10 @@ function FeatureSection() {
       </div>
 
       {/* image part */}
-      <div className="sm:grid sm:grid-cols-2 sm:content sm:gap-50">
+      <div
+        ref={cardsRef}
+        className="sm:grid sm:grid-cols-2 sm:content sm:gap-50"
+      >
         <MyfeaturedCard
           className="sm:h-svh! sm:w-full!"
           image="/home-feature/p7.webp"
@@ -74,7 +187,8 @@ function FeatureSection() {
       {/* experience part */}
       <div className="flex flex-col items-center text-center gap-3 py-10 sm:h-screen">
         <h3 className="text-9xl font-semibold sm:text-[70vh]">
-          23<span className="text-7xl font-thin sm:text-[18vh]">+</span>
+          <span ref={countRef}>0</span>
+          <span className="text-7xl font-thin sm:text-[18vh]">+</span>
         </h3>
         <p className="text-2xl sm:text-4xl">
           YEARS EXPERIENCES WITH <br /> OVER 800{" "}
