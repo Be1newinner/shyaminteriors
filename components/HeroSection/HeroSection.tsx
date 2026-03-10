@@ -155,7 +155,7 @@ function HeroSection() {
 
   return (
     <div className="relative">
-      <div className="bg-[url('/HomeLanding/dot-bg.webp')] bg-cover w-full">
+      <div className="bg-dotted w-full">
         <div className="relative">
           {/* home image section */}
           <div className="relative">
@@ -192,7 +192,7 @@ function HeroSection() {
         </div>
         {/* profile image section */}
 
-        <section className="flex flex-col gap-20 sm:flex-row sm:h-[120svh]  sm:px-30 sm:pt-30 bg-[#1f1f1f]">
+        <section className="flex flex-col gap-20 sm:flex-row sm:h-[120svh]  sm:px-30 sm:pt-30 bg-[#1f1f1f] bg-dotted">
           {/* profile image part */}
           <div
             ref={aboutImageRef}

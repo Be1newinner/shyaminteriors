@@ -37,9 +37,8 @@ body {
   font-family: "Glorify", sans-serif;
 }
 
-.bg-main-dum {
-  /* background-image: url("/HomeLanding/dot-bg.webp"); */
+.bg-dotted {
+  background-image: url("/HomeLanding/dot-bg.webp");
   background-size: cover;
-  background-attachment: fixed !important;
   background-position: center !important;
 }
