@@ -155,13 +155,13 @@ function HeroSection() {
 
   return (
     <div className="relative">
-      <div className=" bg-[url('/HomeLanding/dot-bg.webp')] bg-cover w-full relative sm:pb-30">
+      <div className="bg-[url('/HomeLanding/dot-bg.webp')] bg-cover w-full">
         <div className="relative">
           {/* home image section */}
           <div className="relative">
             <div className="h-[70vh] w-full relative sm:h-screen">
               <Image
-                className="object-cover"
+                className="object-cover -z-1 fixed!"
                 src="/HomeLanding/hero-bg.webp"
                 alt="hero-section"
                 fill
@@ -192,7 +192,7 @@ function HeroSection() {
         </div>
         {/* profile image section */}
 
-        <section className="flex flex-col gap-20 sm:flex-row sm:h-[120svh]  sm:px-30 sm:mt-30">
+        <section className="flex flex-col gap-20 sm:flex-row sm:h-[120svh]  sm:px-30 sm:pt-30 bg-[#1f1f1f]">
           {/* profile image part */}
           <div
             ref={aboutImageRef}

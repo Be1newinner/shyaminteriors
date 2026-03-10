@@ -105,7 +105,7 @@ function FeatureSection() {
   }, []);
 
   return (
-    <section className="px-4 mt-10 sm:px-20 bg-[#1f1f1f] py-10 sm:py-20">
+    <section className="px-4 sm:px-20 bg-[#1f1f1f] py-10 sm:py-20">
       {/* text part */}
       <div className="flex flex-col gap-10 sm:flex-row sm:gap-30 sm:items-center py-10 sm:py-20">
         <div className="flex flex-col gap-5 sm:gap-10">
