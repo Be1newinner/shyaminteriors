@@ -3,7 +3,7 @@ import Image from "next/image";
 import { BrandsPng } from "./Brands";
 function NotableBrands() {
   return (
-    <section className="mt-10 py-10 sm:py30">
+    <section className=" py-10 sm:py30 bg-black">
       <h2 className="text-4xl text-center sm:text-6xl">
         I HAVE WORKED <br /> WITH SOME <br /> NOTABLE BRANDS
       </h2>

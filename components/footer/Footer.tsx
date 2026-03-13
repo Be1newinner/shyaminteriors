@@ -8,7 +8,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 function Footer() {
   return (
-    <footer className="">
+    <footer className="bg-black">
       <WorkTogether />
       <section className="px-4 sm:px-0">
         <div className="border-t-[0.5px] border-[#999] py-10 flex sm:flex-row justify-between sm:px-30">
