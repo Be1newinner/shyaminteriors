@@ -1,6 +1,7 @@
 export const myServices = [
   {
     id: "01",
+    slug: "artwork-design",
     title: "ARTWORK DESIGN",
     image: "/home-services/service-04.webp",
     description:
@@ -8,6 +9,7 @@ export const myServices = [
   },
   {
     id: "02",
+    slug: "cabinetry-design",
     title: "CABINETRY DESIGN",
     image: "/home-services/service-03.webp",
     description:
@@ -15,6 +17,7 @@ export const myServices = [
   },
   {
     id: "03",
+    slug: "custom-furniture",
     title: "CUSTOM FURNITURE",
     image: "/home-services/service-02.webp",
     description:
@@ -22,6 +25,7 @@ export const myServices = [
   },
   {
     id: "04",
+    slug: "lighting-design",
     title: "LIGHTING DESIGN",
     image: "/home-services/service-01.webp",
     description:
@@ -29,6 +33,7 @@ export const myServices = [
   },
   {
     id: "05",
+    slug: "wall-covering",
     title: "WALL COVERING",
     image: "/home-services/service-05.webp",
     description:

@@ -16,45 +16,42 @@ function HeroSection() {
   const aboutStudioRef = useRef<HTMLParagraphElement>(null);
 
   const titleText = "INTERIOR DESIGNER";
-
-  useEffect(() => {
-    //title animation
-    const letters = titleRef.current?.querySelectorAll(".letter");
-
-    if (letters && letters.length > 0) {
-      gsap.from(letters, {
-        y: 20,
-        opacity: 0,
-        duration: 0.9,
-        ease: "power3.out",
-        stagger: 0.05,
-      });
-    }
-  }, []);
-
-  //para which is top of title animation
   const paraText = "EXPERIENCED AND CREATIVE";
 
   useEffect(() => {
-    //para animation
-    const letters = paraRef.current?.querySelectorAll(".letter");
-
-    if (letters && letters.length > 0) {
-      gsap.from(letters, {
-        y: 20,
-        opacity: 0,
-        duration: 0.5,
-        ease: "power3.out",
-        stagger: 0.02,
-      });
-    }
-  }, []);
-
-  // about section part
-
-  useEffect(() => {
     const ctx = gsap.context(() => {
-      // image reveal
+      // Hero animations
+      const titleLetters = titleRef.current?.querySelectorAll(".letter");
+      if (titleLetters && titleLetters.length > 0) {
+        gsap.fromTo(
+          titleLetters,
+          { y: 20, opacity: 0 },
+          {
+            y: 0,
+            opacity: 1,
+            duration: 0.9,
+            ease: "power3.out",
+            stagger: 0.05,
+          },
+        );
+      }
+
+      const paraLetters = paraRef.current?.querySelectorAll(".letter");
+      if (paraLetters && paraLetters.length > 0) {
+        gsap.fromTo(
+          paraLetters,
+          { y: 20, opacity: 0 },
+          {
+            y: 0,
+            opacity: 1,
+            duration: 0.5,
+            ease: "power3.out",
+            stagger: 0.02,
+          },
+        );
+      }
+
+      // About section image reveal
       if (aboutImageRef.current) {
         gsap.fromTo(
           aboutImageRef.current,
@@ -71,10 +68,9 @@ function HeroSection() {
         );
       }
 
-      // title letters
+      // About title letters
       if (aboutTitleRef.current) {
         const letters = aboutTitleRef.current.querySelectorAll("span");
-
         gsap.fromTo(
           letters,
           { opacity: 0, y: 30 },
@@ -92,7 +88,7 @@ function HeroSection() {
         );
       }
 
-      // description
+      // About description
       if (aboutDescRef.current) {
         gsap.fromTo(
           aboutDescRef.current,
@@ -110,7 +106,7 @@ function HeroSection() {
         );
       }
 
-      // logo
+      // About logo
       if (aboutLogoRef.current) {
         gsap.fromTo(
           aboutLogoRef.current,
@@ -128,10 +124,9 @@ function HeroSection() {
         );
       }
 
-      // studio text
+      // About studio text
       if (aboutStudioRef.current) {
         const letters = aboutStudioRef.current.querySelectorAll("span");
-
         gsap.fromTo(
           letters,
           { opacity: 0, y: 20 },
@@ -150,7 +145,15 @@ function HeroSection() {
       }
     });
 
-    return () => ctx.revert();
+    // Refresh scroll trigger after a small delay to handle layout shifts
+    const timeoutId = setTimeout(() => {
+      ScrollTrigger.refresh();
+    }, 100);
+
+    return () => {
+      ctx.revert();
+      clearTimeout(timeoutId);
+    };
   }, []);
 
   return (
@@ -161,7 +164,7 @@ function HeroSection() {
           <div className="relative">
             <div className="h-[70vh] w-full relative sm:h-screen">
               <Image
-                className="object-cover -z-1 fixed!"
+                className="object-cover -z-1"
                 src="/HomeLanding/hero-bg.webp"
                 alt="hero-section"
                 fill
@@ -192,14 +195,14 @@ function HeroSection() {
         </div>
         {/* profile image section */}
 
-        <section className="flex flex-col gap-20 sm:flex-row sm:h-[120svh]  sm:px-30 sm:pt-30 bg-[#1f1f1f] bg-dotted">
+        <section className="flex flex-col gap-20 sm:flex-row sm:h-[120svh] relative sm:px-30 sm:pt-30 bg-[#1f1f1f] bg-dotted">
           {/* profile image part */}
           <div
             ref={aboutImageRef}
             className="w-full h-[60vh] relative sm:h-full sm:w-1/2"
           >
             <Image
-              src="/HomeLanding/about-thumb-1.webp"
+              src="/HomeLanding/profile-img.jpeg"
               alt="hero-section"
               fill
             />
@@ -208,7 +211,7 @@ function HeroSection() {
           {/* profile about part */}
           <div className="flex flex-col gap-10 px-4 sm:w-1/2 sm:py-20">
             <h2 ref={aboutTitleRef} className="text-6xl">
-              {"JANATHAN ALEN".split("").map((letter, i) => (
+              {"SHYAM INTERIORS".split("").map((letter, i) => (
                 <span key={i} className="inline-block opacity-0">
                   {letter === " " ? "\u00A0" : letter}
                 </span>
@@ -225,7 +228,7 @@ function HeroSection() {
               treatment, and us to see detail not available to the naked eye.
             </p>
             {/* interior studeio abuot */}
-            <div className="flex flex-col gap-5 sm:mt-20 sm:gap-10">
+            <div className="flex flex-col gap-5  sm:gap-10">
               <Image
                 ref={aboutLogoRef}
                 src="/HomeLanding/interior-studio-about.webp"
@@ -234,7 +237,7 @@ function HeroSection() {
                 height={150}
               />
               <p ref={aboutStudioRef} className="text-2xl">
-                {"SHYAN INTERIOR STUDIO".split("").map((letter, i) => (
+                {"SHYAM INTERIOR STUDIO".split("").map((letter, i) => (
                   <span key={i} className="inline-block opacity-0">
                     {letter === " " ? "\u00A0" : letter}
                   </span>

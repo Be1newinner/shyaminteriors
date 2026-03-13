@@ -2,6 +2,9 @@
 import React, { useEffect, useRef } from "react";
 import MyfeaturedCard from "../../UI/home-page/MyFeaturedCard";
 import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 function FeatureSection() {
   const titleRef = useRef<HTMLHeadingElement>(null);
@@ -13,95 +16,98 @@ function FeatureSection() {
   const letters = titleRef.current?.querySelectorAll(".letter");
 
   useEffect(() => {
-    const letters = titleRef.current?.querySelectorAll(".letter");
-
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: titleRef.current,
-        start: "top 80%",
-        toggleActions: "play none none none",
-      },
-    });
-
-    if (letters && letters.length > 0) {
-      tl.from(letters, {
-        y: 20,
-        opacity: 0,
-        duration: 0.9,
-        ease: "power3.out",
-        stagger: 0.07,
-      });
-    }
-
-    if (workRef.current) {
-      tl.from(
-        workRef.current,
-        {
-          y: 40,
-          opacity: 0,
-          duration: 0.8,
-          ease: "power3.out",
-        },
-        "-=0.4", // overlap animation slightly
-      );
-    }
-
-    if (workParaRef.current) {
-      tl.from(
-        workParaRef.current,
-        {
-          y: 40,
-          opacity: 0,
-          duration: 0.8,
-          ease: "power3.out",
-        },
-        "-=0.4",
-      );
-    }
-  }, []);
-
-  // cards component animation
-
-  useEffect(() => {
-    const cards = gsap.utils.toArray(cardsRef.current?.children || []);
-
-    cards.forEach((card: any, index) => {
-      gsap.from(card, {
-        y: 80,
-        opacity: 0,
-        duration: 1,
-        ease: "power3.out",
-        delay: index * 0.15, // makes them appear one by one
+    const ctx = gsap.context(() => {
+      const letters = titleRef.current?.querySelectorAll(".letter");
+      const tl = gsap.timeline({
         scrollTrigger: {
-          trigger: card,
-          start: "top 85%",
-          end: "bottom 15%",
+          trigger: titleRef.current,
+          start: "top 80%",
           toggleActions: "play none none none",
         },
       });
+
+      if (letters && letters.length > 0) {
+        tl.from(letters, {
+          y: 20,
+          opacity: 0,
+          duration: 0.9,
+          ease: "power3.out",
+          stagger: 0.07,
+        });
+      }
+
+      if (workRef.current) {
+        tl.from(
+          workRef.current,
+          {
+            y: 40,
+            opacity: 0,
+            duration: 0.8,
+            ease: "power3.out",
+          },
+          "-=0.4",
+        );
+      }
+
+      if (workParaRef.current) {
+        tl.from(
+          workParaRef.current,
+          {
+            y: 40,
+            opacity: 0,
+            duration: 0.8,
+            ease: "power3.out",
+          },
+          "-=0.4",
+        );
+      }
+
+      // cards component animation
+      const cards = gsap.utils.toArray(cardsRef.current?.children || []);
+      cards.forEach((card: any, index) => {
+        gsap.from(card, {
+          y: 80,
+          opacity: 0,
+          duration: 1,
+          ease: "power3.out",
+          delay: index * 0.15,
+          scrollTrigger: {
+            trigger: card,
+            start: "top 85%",
+            end: "bottom 15%",
+            toggleActions: "play none none none",
+          },
+        });
+      });
+
+      // counting effect
+      const obj = { value: 0 };
+      gsap.to(obj, {
+        value: 23,
+        duration: 1.5,
+        ease: "none",
+        scrollTrigger: {
+          trigger: countRef.current,
+          start: "top 85%",
+          toggleActions: "play none none none",
+        },
+        onUpdate: () => {
+          if (countRef.current) {
+            countRef.current.innerText = Math.floor(obj.value).toString();
+          }
+        },
+      });
     });
-  }, []);
 
-  //counting effect
+    // Refresh scroll trigger after a small delay to handle layout shifts
+    const timeoutId = setTimeout(() => {
+      ScrollTrigger.refresh();
+    }, 100);
 
-  useEffect(() => {
-    const obj = { value: 0 };
-
-    gsap.to(obj, {
-      value: 23,
-      duration: 1.5,
-      ease: "none",
-      scrollTrigger: {
-        trigger: countRef.current,
-        start: "top 85%",
-        toggleActions: "play none none none",
-      },
-      onUpdate: () => {
-        if (countRef.current) {
-          countRef.current.innerText = Math.floor(obj.value).toString();
-        }
-      },
-    });
+    return () => {
+      ctx.revert();
+      clearTimeout(timeoutId);
+    };
   }, []);
 
   return (
@@ -141,46 +147,55 @@ function FeatureSection() {
         className="sm:grid sm:grid-cols-2 sm:content sm:gap-50"
       >
         <MyfeaturedCard
-          className="sm:h-svh! sm:w-full!"
+          slug="drawing-room"
+          className="sm:h-svh sm:w-full"
           image="/home-feature/p7.webp"
           title="Drawing Room"
           location="Kolkata"
           year="2025"
         />
         <MyfeaturedCard
-          className="sm:h-[400px] sm:w-full! sm:mt-30"
+          slug="bed-room"
+          className="sm:h-[400px] sm:w-full sm:mt-30"
           image="/home-feature/p7.webp"
-          title="Drawing Room"
+          title="Bedroom"
           location="Kolkata"
           year="2025"
         />
         <MyfeaturedCard
-          className="sm:h-[550px] "
-          image="/home-feature/p7.webp"
-          title="Drawing Room"
-          location="Kolkata"
-          year="2025"
+          slug="bath-room"
+          className="sm:h-[550px]"
+          image="/images/hero_page/p2.webp"
+          title="Bath Room"
+          location="Natre, New York"
+          year="2022"
         />
+
         <MyfeaturedCard
+          slug="dinning-space"
           className="sm:h-[550px] sm:-mt-30"
-          image="/home-feature/p7.webp"
-          title="Drawing Room"
-          location="Kolkata"
-          year="2025"
+          image="/images/hero_page/p6.webp"
+          title="Dining Area"
+          location="Natre, New York"
+          year="2021"
         />
+
         <MyfeaturedCard
-          className="sm:h-[400px] sm:w-full! sm:mt-30"
-          image="/home-feature/p7.webp"
-          title="Drawing Room"
-          location="Kolkata"
-          year="2025"
+          slug="kitchen-room"
+          className="sm:h-[400px] sm:w-full sm:mt-30"
+          image="/images/hero_page/p3.webp"
+          title="Kitchen Suite"
+          location="Natre, New York"
+          year="2023"
         />
+
         <MyfeaturedCard
-          className="sm:h-screen sm:w-full!"
-          image="/home-feature/p7.webp"
-          title="Drawing Room"
-          location="Kolkata"
-          year="2025"
+          slug="reading-room"
+          className="sm:h-screen sm:w-full"
+          image="/images/hero_page/p5.webp"
+          title="Reading Room"
+          location="Natre, New York"
+          year="2022"
         />
       </div>
 

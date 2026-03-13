@@ -2,6 +2,7 @@
 import React, { useEffect, useRef } from "react";
 import { myServices } from "./myServices";
 import Image from "next/image";
+import Link from "next/link";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
@@ -10,38 +11,55 @@ function MyExpertiseServices() {
   const servicesRef = useRef<HTMLHeadingElement>(null);
   //title and service animation
   useEffect(() => {
-    const letters = titleRef.current?.querySelectorAll(".letter");
+    const ctx = gsap.context(() => {
+      const letters = titleRef.current?.querySelectorAll(".letter");
 
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: titleRef.current,
-        start: "top 80%",
-        toggleActions: "play none none none",
-      },
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: titleRef.current,
+          start: "top 80%",
+          toggleActions: "play none none none",
+        },
+      });
+
+      if (letters) {
+        tl.fromTo(
+          letters,
+          { y: 20, opacity: 0 },
+          {
+            y: 0,
+            opacity: 1,
+            duration: 0.9,
+            stagger: 0.07,
+            ease: "power3.out",
+          },
+        );
+      }
+
+      if (servicesRef.current) {
+        tl.fromTo(
+          servicesRef.current,
+          { y: 40, opacity: 0 },
+          {
+            y: 0,
+            opacity: 1,
+            duration: 0.8,
+            ease: "power3.out",
+          },
+          "-=0.4",
+        );
+      }
     });
 
-    if (letters) {
-      tl.from(letters, {
-        y: 20,
-        opacity: 0,
-        duration: 0.9,
-        stagger: 0.07,
-        ease: "power3.out",
-      });
-    }
+    // Refresh scroll trigger after a small delay to handle layout shifts
+    const timeoutId = setTimeout(() => {
+      ScrollTrigger.refresh();
+    }, 100);
 
-    if (servicesRef.current) {
-      tl.from(
-        servicesRef.current,
-        {
-          y: 40,
-          opacity: 0,
-          duration: 0.8,
-          ease: "power3.out",
-        },
-        "-=0.4",
-      );
-    }
+    return () => {
+      ctx.revert();
+      clearTimeout(timeoutId);
+    };
   }, []);
 
   const [currentService, setCurrentService] = React.useState(myServices[0]);
@@ -79,9 +97,11 @@ function MyExpertiseServices() {
             <p className="text-[#999] font-sans text-xl my-10 sm:max-w-[70%]">
               {currentService.description}
             </p>
-            <button className=" border-[0.5px] border-[#565555] cursor-pointers text-white px-10  py-6 max-w-[200px]  rounded-full font-sans font-bold text-lg cursor-pointer">
-              KNOW MORE
-            </button>
+            <Link href={`/services/${currentService.slug}`}>
+              <button className=" border-[0.5px] border-[#565555] cursor-pointers text-white px-10  py-6 max-w-[200px]  rounded-full font-sans font-bold text-lg cursor-pointer">
+                KNOW MORE
+              </button>
+            </Link>
           </div>
         </div>
 
