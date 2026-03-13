@@ -4,8 +4,7 @@ import React, { useEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import WorkTogether from "../work-together/WorkTogether";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+
 function Footer() {
   return (
     <footer className="bg-black">
@@ -42,14 +41,13 @@ function Footer() {
 
         <div className="flex flex-col justify-center items-center py-10 gap-5 border-t-[0.5px] border-[#999] sm:px-30 sm:flex-row sm:justify-between sm:py-5">
           <p className="text-center">
-            2022-2025 | ALL RIGHTS RESERVED BY SHYAN ARCHITECT
+            2022-2025 | ALL RIGHTS RESERVED BY SHYAM INTERIORS
           </p>
 
           <div className="flex gap-5 ">
             <Facebook />
             <Twitter />
             <Instagram />
-            <Linkedin />
             <Linkedin />
           </div>
         </div>
