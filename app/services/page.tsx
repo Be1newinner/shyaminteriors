@@ -19,12 +19,12 @@ function page() {
       </div>
 
       {/* service card */}
-      <div className="flex flex-col gap-10 sm:flex-row sm:flex-wrap sm:justify-center ">
+      <div className="flex flex-col gap-10 sm:flex-row sm:flex-wrap sm:justify-center py-10 *:hover:scale-105 *:transition-all *:duration-300">
         <ServicesCard
-          slug="artwork-design"
+          slug="living-area"
           id="01"
-          image="/home-services/service-01.webp"
-          title="ARTWORK DESIGN"
+          image="/home-services/living-area-01.jpeg"
+          title="LIVING AREA"
           description="Welcome to the Modern Urban Retreat project, where we are tasked with
         transforming a 3-bedroom apart..."
           services={["UI/UX Design", "Research", "Mobile & Web App"]}
@@ -69,9 +69,36 @@ function page() {
         transforming a 3-bedroom apart..."
           services={["UI/UX Design", "Research", "Mobile & Web App"]}
         />
+        <ServicesCard
+          slug="residential-design"
+          id="06"
+          image="/home-services/service-01.webp"
+          title="RESIDENTIAL DESIGN"
+          description="Welcome to the Modern Urban Retreat project, where we are tasked with
+        transforming a 3-bedroom apart..."
+          services={["UI/UX Design", "Research", "Mobile & Web App"]}
+        />
+        <ServicesCard
+          slug="corporate-design"
+          id="07"
+          image="/home-services/service-01.webp"
+          title="CORPORATE DESIGN"
+          description="Welcome to the Modern Urban Retreat project, where we are tasked with
+        transforming a 3-bedroom apart..."
+          services={["UI/UX Design", "Research", "Mobile & Web App"]}
+        />
+        <ServicesCard
+          slug="industrial-design"
+          id="08"
+          image="/home-services/service-01.webp"
+          title="INDUSTRIAL DESIGN"
+          description="Welcome to the Modern Urban Retreat project, where we are tasked with
+        transforming a 3-bedroom apart..."
+          services={["UI/UX Design", "Research", "Mobile & Web App"]}
+        />
       </div>
 
-      <section className="mt-10 border-t-[0.5px] border-[#666666] pt-10">
+      {/* <section className="mt-10 border-t-[0.5px] border-[#666666] pt-10">
         <h2 className="text-3xl py-10 font-bold text-center">
           TRUSTED WORLDWIDE CLIENTS
         </h2>
@@ -87,7 +114,7 @@ function page() {
             </div>
           ))}
         </div>
-      </section>
+      </section> */}
     </section>
   );
 }

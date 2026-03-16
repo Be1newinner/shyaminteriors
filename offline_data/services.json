@@ -1,26 +1,26 @@
 [
   {
-    "slug": "artwork-design",
-    "title": "ARTWORK DESIGN",
-    "heroImage": "/home-services/service-01.webp",
-    "overview": "Artwork design focuses on creating functional storage solutions while maintaining aesthetic harmony in interior spaces. Our cabinetry solutions are designed to maximize space efficiency, provide durability, and enhance the visual appeal of kitchens, living rooms, and offices.",
-    "process": "Our cabinetry design process begins with understanding the client's storage requirements and spatial layout. We create custom designs that balance functionality with elegance, using high-quality materials and modern finishes.  From concept sketches to final installation, every detail is crafted to ensure seamless integration with the interior environment.",
+    "slug": "living-area",
+    "title": "LIVING AREA",
+    "heroImage": "/home-services/living-area-01.jpeg",
+    "overview": "Living area design focuses on creating functional storage solutions while maintaining aesthetic harmony in interior spaces. Our cabinetry solutions are designed to maximize space efficiency, provide durability, and enhance the visual appeal of living rooms.",
+    "process": "Our living area design process begins with understanding the client's storage requirements and spatial layout. We create custom designs that balance functionality with elegance, using high-quality materials and modern finishes.  From concept sketches to final installation, every detail is crafted to ensure seamless integration with the interior environment.",
     "images": [
-      "/home-services/service-01.webp",
-      "/home-services/service-02.webp",
-      "/home-services/service-03.webp"
+      "/home-services/living-area-01.jpeg",
+      "/home-services/living-area-01.jpeg",
+      "/home-services/living-area-01.jpeg"
     ],
     "awardsText": "Our cabinetry designs combine storage efficiency with elegance.",
     "video": "/assets/cabinetry.mp4"
   },
 
   {
-    "slug": "cabinetry-design",
-    "title": "CABINETRY DESIGN",
+    "slug": "3d-wall-design",
+    "title": "3D WALL DESIGN",
     "heroImage": "/home-services/service-02.webp",
-    "overview": "Cabinetry design focuses on creating functional storage solutions while maintaining aesthetic harmony in interior spaces. Our cabinetry solutions are designed to maximize space efficiency, provide durability, and enhance the visual appeal of kitchens, living rooms, and offices.",
+    "overview": "3D wall design focuses on creating functional storage solutions while maintaining aesthetic harmony in interior spaces. Our cabinetry solutions are designed to maximize space efficiency, provide durability, and enhance the visual appeal of kitchens, living rooms, and offices.",
 
-    "process": "Our cabinetry design process begins with understanding the client's storage requirements and spatial layout. We create custom designs that balance functionality with elegance, using high-quality materials and modern finishes.  From concept sketches to final installation, every detail is crafted to ensure seamless integration with the interior environment.",
+    "process": "Our 3D wall design process begins with understanding the client's storage requirements and spatial layout. We create custom designs that balance functionality with elegance, using high-quality materials and modern finishes.  From concept sketches to final installation, every detail is crafted to ensure seamless integration with the interior environment.",
 
     "images": [
       "/home-services/service-02.webp",
@@ -28,7 +28,7 @@
       "/home-services/service-04.webp"
     ],
 
-    "awardsText": "Our cabinetry designs combine storage efficiency with elegance.",
+    "awardsText": "Our 3D wall designs combine storage efficiency with elegance.",
     "video": "/assets/cabinetry.mp4"
   },
   {
@@ -81,5 +81,47 @@
 
     "awardsText": "Our wall covering designs add character and sophistication to interiors.",
     "video": "/assets/wall-covering.mp4"
+  },
+  {
+    "slug": "residential-design",
+    "title": "RESIDENTIAL DESIGN",
+    "heroImage": "/home-services/service-05.webp",
+    "overview": "Residential design focuses on creating functional storage solutions while maintaining aesthetic harmony in interior spaces. Our cabinetry solutions are designed to maximize space efficiency, provide durability, and enhance the visual appeal of living rooms.",
+    "process": "Our residential design process begins with understanding the client's storage requirements and spatial layout. We create custom designs that balance functionality with elegance, using high-quality materials and modern finishes.  From concept sketches to final installation, every detail is crafted to ensure seamless integration with the interior environment.",
+    "images": [
+      "/home-services/service-05.webp",
+      "/home-services/service-05.webp",
+      "/home-services/service-01.webp"
+    ],
+    "awardsText": "Our cabinetry designs combine storage efficiency with elegance.",
+    "video": "/assets/cabinetry.mp4"
+  },
+  {
+    "slug": "corporate-design",
+    "title": "CORPORATE DESIGN",
+    "heroImage": "/home-services/service-05.webp",
+    "overview": "Corporate design focuses on creating functional storage solutions while maintaining aesthetic harmony in interior spaces. Our cabinetry solutions are designed to maximize space efficiency, provide durability, and enhance the visual appeal of living rooms.",
+    "process": "Our corporate design process begins with understanding the client's storage requirements and spatial layout. We create custom designs that balance functionality with elegance, using high-quality materials and modern finishes.  From concept sketches to final installation, every detail is crafted to ensure seamless integration with the interior environment.",
+    "images": [
+      "/home-services/service-05.webp",
+      "/home-services/service-05.webp",
+      "/home-services/service-01.webp"
+    ],
+    "awardsText": "Our cabinetry designs combine storage efficiency with elegance.",
+    "video": "/assets/cabinetry.mp4"
+  },
+  {
+    "slug": "industrial-design",
+    "title": "INDUSTRIAL DESIGN",
+    "heroImage": "/home-services/service-05.webp",
+    "overview": "Industrial design focuses on creating functional storage solutions while maintaining aesthetic harmony in interior spaces. Our cabinetry solutions are designed to maximize space efficiency, provide durability, and enhance the visual appeal of living rooms.",
+    "process": "Our industrial design process begins with understanding the client's storage requirements and spatial layout. We create custom designs that balance functionality with elegance, using high-quality materials and modern finishes.  From concept sketches to final installation, every detail is crafted to ensure seamless integration with the interior environment.",
+    "images": [
+      "/home-services/service-05.webp",
+      "/home-services/service-05.webp",
+      "/home-services/service-01.webp"
+    ],
+    "awardsText": "Our cabinetry designs combine storage efficiency with elegance.",
+    "video": "/assets/cabinetry.mp4"
   }
 ]

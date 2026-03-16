@@ -52,8 +52,8 @@ const projects = [
   },
   {
     src: "/images/hero_page/p5.webp",
-    slug: "reading-room",
-    title: "Reading Room",
+    slug: "office-area",
+    title: "Office Area",
     location: "Natre, New York",
     year: "2022",
     width: 600,
