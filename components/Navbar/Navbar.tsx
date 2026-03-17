@@ -23,6 +23,7 @@ const Navbar = () => {
 
   useEffect(() => {
     if (open) {
+      document.body.classList.add("hide-whatsapp");
       // Open animation
       gsap.to(menuRef.current, {
         y: 0,
@@ -42,9 +43,10 @@ const Navbar = () => {
           duration: 0.5,
           delay: 0.2,
           ease: "power3.out",
-        },
+        }
       );
     } else {
+      document.body.classList.remove("hide-whatsapp");
       // Close animation
       gsap.to(menuRef.current, {
         y: "-100%",
@@ -92,7 +94,7 @@ const Navbar = () => {
       >
         {/* close button */}
         <button
-          className="cursor-pointer text-white border border-[#666] p-4 rounded-full inline-block mr-auto"
+          className="cursor-pointer text-white border border-[#666] p-4 rounded-full inline-block mr-auto active:scale-95 transition-all duration-300 hover:bg-gray-800 hover:text-white"
           onClick={() => setOpen(false)}
         >
           <X />

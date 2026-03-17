@@ -45,7 +45,10 @@ export default function MultiStepForm() {
   // Reset everything when dialog closes
   const handleOpenChange = (val: boolean) => {
     setOpen(val);
-    if (!val) {
+    if (val) {
+      document.body.classList.add("hide-whatsapp");
+    } else {
+      document.body.classList.remove("hide-whatsapp");
       setStep(1);
       setBhk("1 BHK");
       setRooms({

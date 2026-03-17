@@ -17,7 +17,7 @@ const allProjects: Record<string, (typeof drawingRoom)[0]> = {
 };
 
 const allServices: Record<string, (typeof services)[0]> = {
-  "office-area": services[0],
+  "living-area": services[0],
   "3d-wall-design": services[1],
   "custom-furniture": services[2],
   "lighting-design": services[3],
