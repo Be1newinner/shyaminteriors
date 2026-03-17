@@ -2,6 +2,7 @@
 
 import FeatureSection from "@/components/Feature-section/FeatureSection";
 import HeroSection from "@/components/HeroSection/HeroSection";
+import MultistepForms from "@/components/calculate_area/MultiStepForms";
 import MyExpertiseServices from "@/components/expertise-services/MyExpertiseServices";
 import HomeVideo from "@/components/home-video/HomeVideo";
 import ReviewCard from "@/components/review/ReviewCard";
@@ -14,6 +15,7 @@ export default function Home() {
       <HeroSection />
       <FeatureSection />
       <MyExpertiseServices />
+      <MultistepForms />
       <ReviewCard />
       {/* <NotableBrands /> */}
       <HomeVideo />
