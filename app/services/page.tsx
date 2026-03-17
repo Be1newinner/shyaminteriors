@@ -31,10 +31,10 @@ function page() {
         />
 
         <ServicesCard
-          slug="cabinetry-design"
+          slug="3d-wall-design"
           id="02"
           image="/home-services/service-01.webp"
-          title="CABINETRY DESIGN"
+          title="3D WALL DESIGN"
           description="Welcome to the Modern Urban Retreat project, where we are tasked with
         transforming a 3-bedroom apart..."
           services={["UI/UX Design", "Research", "Mobile & Web App"]}
