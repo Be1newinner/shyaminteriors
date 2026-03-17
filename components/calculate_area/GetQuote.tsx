@@ -58,10 +58,39 @@ export default function GetQuote({
     setForm((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log({ bhk, rooms, selectedPackage, ...form });
-    setSubmitted(true);
+    setLoading(true);
+    setError(null);
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          ...form,
+          bhk,
+          rooms,
+          selectedPackage,
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to submit quote request");
+      }
+
+      setSubmitted(true);
+    } catch (err) {
+      console.error("Submission error:", err);
+      setError("Something went wrong. Please try again.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   if (submitted) {
@@ -210,21 +239,37 @@ export default function GetQuote({
       </div>
 
       {/* Bottom Buttons - Fixed Footer */}
-      <div className="flex-none flex items-center justify-between px-6 py-4 bg-white border-t border-gray-100">
-        <button
-          type="button"
-          onClick={back}
-          className="text-red-500 font-bold text-sm tracking-wider hover:text-red-600 transition-colors cursor-pointer"
-        >
-          BACK
-        </button>
+      <div className="flex-none flex flex-col px-6 py-4 bg-white border-t border-gray-100 gap-3">
+        {error && (
+          <p className="text-red-500 text-xs font-bold text-center animate-pulse">
+            {error}
+          </p>
+        )}
+        <div className="flex items-center justify-between w-full">
+          <button
+            type="button"
+            onClick={back}
+            disabled={loading}
+            className="text-red-500 font-bold text-sm tracking-wider hover:text-red-600 transition-colors cursor-pointer disabled:opacity-50"
+          >
+            BACK
+          </button>
 
-        <button
-          type="submit"
-          className="bg-red-500 hover:bg-red-600 active:scale-95 transition-all text-white px-10 py-3 rounded-full font-bold text-sm shadow-lg shadow-red-200 cursor-pointer"
-        >
-          GET QUOTE
-        </button>
+          <button
+            type="submit"
+            disabled={loading}
+            className="bg-red-500 hover:bg-red-600 active:scale-95 transition-all text-white px-10 py-3 rounded-full font-bold text-sm shadow-lg shadow-red-200 cursor-pointer disabled:opacity-70 disabled:cursor-not-allowed flex items-center gap-2"
+          >
+            {loading ? (
+              <>
+                <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                SENDING...
+              </>
+            ) : (
+              "GET QUOTE"
+            )}
+          </button>
+        </div>
       </div>
     </form>
   );
