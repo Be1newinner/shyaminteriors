@@ -1,7 +1,53 @@
 "use client";
 
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, FormEvent } from "react";
 import gsap from "gsap";
+
+function message({
+  name,
+  email,
+  phone,
+  city,
+  bhk,
+  selectedPackage,
+  roomsDetails,
+}: {
+  name: string;
+  email: string;
+  phone: string;
+  city: string;
+  bhk: string;
+  selectedPackage: string;
+  roomsDetails: string;
+}) {
+  const emailHtml = `
+      <div style="font-family: sans-serif; line-height: 1.6; color: #333; max-width: 600px; margin: auto; border: 1px solid #eee; padding: 20px; border-radius: 10px;">
+        <h2 style="color: #ef4444; border-bottom: 2px solid #ef4444; padding-bottom: 10px;">New Interior Quote Request</h2>
+        
+        <div style="margin-bottom: 20px;">
+          <h3 style="margin-bottom: 5px;">Client Information</h3>
+          <p><strong>Name:</strong> ${name}</p>
+          <p><strong>Email:</strong> ${email || "N/A"}</p>
+          <p><strong>Phone:</strong> +91 ${phone || "N/A"}</p>
+          <p><strong>City:</strong> ${city || "N/A"}</p>
+        </div>
+
+        <div style="background-color: #f9f9f9; padding: 15px; border-radius: 8px; margin-bottom: 20px;">
+          <h3 style="margin-top: 0; margin-bottom: 10px;">Calculation Details</h3>
+          <p><strong>Configuration:</strong> ${bhk || "N/A"}</p>
+          <p><strong>Package selected:</strong> ${selectedPackage || "N/A"}</p>
+          <p><strong>Rooms breakdown:</strong> ${roomsDetails || "N/A"}</p>
+        </div>
+
+        <hr style="border: 0; border-top: 1px solid #eee;" />
+        <p style="font-size: 12px; color: #999; text-align: center;">
+          This request was sent from the Shyam Interiors Interior Cost Calculator.
+        </p>
+      </div>
+    `;
+
+  return emailHtml;
+}
 
 export default function GetQuote({
   back,
@@ -36,7 +82,7 @@ export default function GetQuote({
           duration: 0.5,
           stagger: 0.1,
           ease: "power2.out",
-        }
+        },
       );
     }
   }, [submitted]);
@@ -46,7 +92,7 @@ export default function GetQuote({
       gsap.fromTo(
         successRef.current,
         { opacity: 0, scale: 0.9 },
-        { opacity: 1, scale: 1, duration: 0.5, ease: "back.out(1.7)" }
+        { opacity: 1, scale: 1, duration: 0.5, ease: "back.out(1.7)" },
       );
     }
   }, [submitted]);
@@ -61,7 +107,7 @@ export default function GetQuote({
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setLoading(true);
     setError(null);
@@ -77,6 +123,18 @@ export default function GetQuote({
           bhk,
           rooms,
           selectedPackage,
+
+          email: form.email,
+          name: form.name,
+          comment: message({
+            name: form.name,
+            email: form.email,
+            phone: form.phone,
+            city: form.city,
+            bhk,
+            selectedPackage: selectedPackage || "No Package Selected",
+            roomsDetails: JSON.stringify(rooms),
+          }),
         }),
       });
 
@@ -228,11 +286,13 @@ export default function GetQuote({
               <option value="" disabled>
                 Select city
               </option>
-              {["Delhi", "Mumbai", "Bangalore", "Pune", "Hyderabad"].map((c) => (
-                <option key={c} value={c}>
-                  {c}
-                </option>
-              ))}
+              {["Delhi", "Mumbai", "Bangalore", "Pune", "Hyderabad"].map(
+                (c) => (
+                  <option key={c} value={c}>
+                    {c}
+                  </option>
+                ),
+              )}
             </select>
           </div>
         </div>

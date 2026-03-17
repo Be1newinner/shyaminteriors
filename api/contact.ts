@@ -20,9 +20,9 @@ export async function POST(req: Request) {
     });
 
     await transporter.sendMail({
-      from: `"Seekho Computer" <${process.env.EMAIL_USER}>`,
-      to: "choursiyauday@gmail.com",
-      subject: "Welcome Mail!",
+      from: `"Shyam Interiors" <ak5884771@gmail.com>`,
+      to: "ak5884771@gmail.com",
+      subject: "Shyam Interiors Quote Request",
       html: `
         <div>
           <h1>Hello</h1>
