@@ -13,15 +13,18 @@ const allProjects: Record<string, (typeof drawingRoom)[0]> = {
   "bath-room": bathRoom[0],
   "dinning-space": dinningSpace[0],
   "kitchen-room": kitchenRoom[0],
-  "reading-room": readingRoom[0],
+  "office-area": readingRoom[0],
 };
 
 const allServices: Record<string, (typeof services)[0]> = {
-  "artwork-design": services[0],
-  "cabinetry-design": services[1],
+  "living-area": services[0],
+  "3d-wall-design": services[1],
   "custom-furniture": services[2],
   "lighting-design": services[3],
   "wall-covering": services[4],
+  "residential-design": services[5],
+  "corporate-design": services[6],
+  "industrial-design": services[7],
 };
 
 export { allProjects, allServices };

@@ -3,6 +3,8 @@ import { Geist, Geist_Mono, Teko } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar/Navbar";
 import Footer from "@/components/footer/Footer";
+import ScrollTopButton from "@/components/scrolltop/ScrollPage";
+import WhatsAppButton from "@/components/whatsapp/WhatsAppButton";
 
 const tekoSans = Teko({
   variable: "--font-teko-sans",
@@ -52,6 +54,8 @@ export default function RootLayout({
         <Navbar />
         {children}
         <Footer />
+        <ScrollTopButton />
+        <WhatsAppButton />
       </body>
     </html>
   );

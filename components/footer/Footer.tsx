@@ -4,8 +4,7 @@ import React, { useEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import WorkTogether from "../work-together/WorkTogether";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+
 function Footer() {
   return (
     <footer className="bg-black">
@@ -21,20 +20,24 @@ function Footer() {
                 fill
               />
             </div>
-            <p>6541, BRAND TOWER, BADARPUR, DELHI, INDIA</p>
+            <p className="">
+              Om Enclave Part-2, 60 feet Road,
+              <br /> Nearby Nalanda Public School, <br />
+              Faridabad
+            </p>
           </div>
           {/* address */}
           <div className="flex flex-col justify-center gap-10 sm:flex-row sm:justify-between sm:items-center sm:gap-30">
-            <ul className="flex flex-col gap-2 font-extrabold text-lg">
-              <Link href="/aboutme">ABOUT ME</Link>
-              <Link href="/work">WORK</Link>
+            <ul className="flex flex-col justify-center items-center gap-2 font-extrabold text-lg ">
+              <Link href="/about">ABOUT ME</Link>
+              <Link href="/projects">WORK</Link>
               <Link href="/contact">CONTACT</Link>
             </ul>
             <div>
               {/* email */}
-              <p>INFO@EXAMPLE.COM</p>
+              <p>shyamdesign287@gmail.com</p>
               {/* phone */}
-              <p>+91 1234567890</p>
+              <p>+91 8820420956</p>
             </div>
           </div>
         </div>
@@ -42,14 +45,13 @@ function Footer() {
 
         <div className="flex flex-col justify-center items-center py-10 gap-5 border-t-[0.5px] border-[#999] sm:px-30 sm:flex-row sm:justify-between sm:py-5">
           <p className="text-center">
-            2022-2025 | ALL RIGHTS RESERVED BY SHYAN ARCHITECT
+            2022-2025 | ALL RIGHTS RESERVED BY SHYAM INTERIORS
           </p>
 
           <div className="flex gap-5 ">
             <Facebook />
             <Twitter />
             <Instagram />
-            <Linkedin />
             <Linkedin />
           </div>
         </div>

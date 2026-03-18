@@ -1,8 +1,6 @@
-import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
-import HomeVideo from "@/components/home-video/HomeVideo";
 import { allServices } from "@/offline_data";
 
 async function ServiceSlugPage({
@@ -14,9 +12,9 @@ async function ServiceSlugPage({
 
   const service = allServices[slug];
 
-  const otherServices = Object.values(allServices).filter(
-    (service) => service.slug !== slug,
-  );
+  const otherServices = Object.values(allServices)
+    .filter(Boolean)
+    .filter((service) => service.slug !== slug);
 
   if (!service) {
     return (

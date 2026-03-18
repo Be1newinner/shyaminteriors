@@ -83,8 +83,8 @@ function FeatureSection() {
       // counting effect
       const obj = { value: 0 };
       gsap.to(obj, {
-        value: 23,
-        duration: 1.5,
+        value: 5,
+        duration: 1,
         ease: "none",
         scrollTrigger: {
           trigger: countRef.current,
@@ -133,7 +133,7 @@ function FeatureSection() {
             after:content-[''] after:block after:w-10 after:h-[1px]
             after:bg-[#666666] after:mb-[3px]"
           >
-            SINCE 2014
+            SINCE 2019
           </span>
           <p className="text-3xl sm:w-fit">
             INTERIOR DESIGN PLANNING DECORATION
@@ -193,7 +193,7 @@ function FeatureSection() {
           slug="reading-room"
           className="sm:h-screen sm:w-full"
           image="/images/hero_page/p5.webp"
-          title="Reading Room"
+          title=""
           location="Natre, New York"
           year="2022"
         />
@@ -206,7 +206,7 @@ function FeatureSection() {
           <span className="text-7xl font-thin sm:text-[18vh]">+</span>
         </h3>
         <p className="text-2xl sm:text-4xl">
-          YEARS EXPERIENCES WITH <br /> OVER 800{" "}
+          YEARS EXPERIENCES WITH <br /> OVER 100{" "}
           <span className="underline text-[#666666]">
             PROJECTS <br />
           </span>{" "}

@@ -211,11 +211,22 @@ function HeroSection() {
           {/* profile about part */}
           <div className="flex flex-col gap-10 px-4 sm:w-1/2 sm:py-20">
             <h2 ref={aboutTitleRef} className="text-6xl">
-              {"SHYAM INTERIORS".split("").map((letter, i) => (
-                <span key={i} className="inline-block opacity-0">
-                  {letter === " " ? "\u00A0" : letter}
-                </span>
-              ))}
+              {"SHYAM INTERIORS".split("").map((letter, i) => {
+                if (letter === " ") {
+                  return (
+                    <React.Fragment key={i}>
+                      <span className="hidden sm:inline">&nbsp;</span>
+                      <br className="sm:hidden" />
+                    </React.Fragment>
+                  );
+                }
+
+                return (
+                  <span key={i} className="inline-block opacity-0">
+                    {letter}
+                  </span>
+                );
+              })}
             </h2>
             <p
               ref={aboutDescRef}

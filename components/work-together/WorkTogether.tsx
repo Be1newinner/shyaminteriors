@@ -64,7 +64,7 @@ function WorkTogether() {
   return (
     <section
       ref={containerRef}
-      className=" py-20 px-4 flex flex-col gap-10 sm:px-30 sm:h-screen sm:justify-center"
+      className="py-20 px-4 flex flex-col gap-10 sm:px-30 sm:h-screen sm:justify-center"
     >
       <div className="flex flex-col gap-5 sm:flex-row sm:justify-center sm:items-center">
         <h2 className="text-5xl sm:text-9xl text-white/20" ref={textRef}>
@@ -80,7 +80,7 @@ function WorkTogether() {
           href="/contact"
           onMouseEnter={handleEnter}
           onMouseLeave={handleLeave}
-          className="relative overflow-hidden font-sans text-xl bg-white font-semibold text-black py-5 flex items-center justify-center rounded-4xl max-w-55 sm:h-15 sm:px-10 sm:py-10"
+          className="relative overflow-hidden font-sans text-xl bg-white font-semibold text-black py-5 flex items-center justify-center rounded-4xl max-w-55 sm:h-10 sm:px-10 sm:py-9"
         >
           {/* pink animated layer */}
           <span
