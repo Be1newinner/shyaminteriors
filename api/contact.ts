@@ -10,18 +10,19 @@ export async function POST(req: Request) {
       );
     }
 
+
     // nodemailer module implementation
     const transporter = nodemailer.createTransport({
       service: "Gmail",
       auth: {
-        user: "ak5884771@gmail.com",
-        pass: "fvmf isai vkgs rpwn",
+        user: process.env.SMTP_USER,
+        pass: process.env.SMTP_PASSWORD,
       },
     });
 
     await transporter.sendMail({
-      from: `"Shyam Interiors" <ak5884771@gmail.com>`,
-      to: "ak5884771@gmail.com",
+      from: `"Shyam Interiors" ${process.env.SMTP_USER}`,
+      to: process.env.SMTP_USER,
       subject: "Shyam Interiors Quote Request",
       html: `
         <div>
