@@ -199,12 +199,15 @@ function HeroSection() {
           {/* profile image part */}
           <div
             ref={aboutImageRef}
-            className="w-full h-[60vh] relative sm:h-full sm:w-1/2"
+            className="w-full h-[60vh] relative sm:h-full sm:w-1/2 
+             shadow-[0_20px_50px_rgba(0,0,0,0.25)] 
+             rounded-2xl overflow-hidden"
           >
             <Image
-              src="/HomeLanding/profile-img.jpeg"
+              src="/HomeLanding/profile-final-01.jpeg"
               alt="hero-section"
               fill
+              className="object-cover"
             />
           </div>
 
@@ -239,14 +242,16 @@ function HeroSection() {
               treatment, and us to see detail not available to the naked eye.
             </p>
             {/* interior studeio abuot */}
-            <div className="flex flex-col gap-5  sm:gap-10">
-              <Image
-                ref={aboutLogoRef}
-                src="/HomeLanding/interior-studio-about.webp"
-                alt="interior-studio-about"
-                width={150}
-                height={150}
-              />
+            <div className="flex flex-col gap-5  ">
+              <div className="relative h-40 w-40 ">
+                <Image
+                  className="object-cover"
+                  ref={aboutLogoRef}
+                  src="/HomeLanding/logo-about.png"
+                  alt="interior-studio-about"
+                  fill
+                />
+              </div>
               <p ref={aboutStudioRef} className="text-2xl">
                 {"SHYAM INTERIOR STUDIO".split("").map((letter, i) => (
                   <span key={i} className="inline-block opacity-0">

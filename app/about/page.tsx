@@ -166,12 +166,20 @@ function About() {
           <div className="sm:flex sm:gap-5 h-[150svh]">
             <div
               ref={imageRef}
-              className="w-full h-[60vh] relative mt-10 sm:w-[60%] sm:h-full"
+              className="w-full h-[60vh] relative mt-10 sm:w-[60%] sm:h-full
+             rounded-2xl overflow-hidden
+             shadow-[0_25px_60px_rgba(0,0,0,0.35)]
+             hover:shadow-[0_35px_80px_rgba(0,0,0,0.45)]
+             transition-all duration-500 ease-out
+             group"
             >
               <Image
-                src="/HomeLanding/about-thumb-1.webp"
+                src="/HomeLanding/profile-final-01.jpeg"
                 alt="hero-section"
                 fill
+                className="object-cover rounded-2xl 
+               group-hover:scale-102 
+               transition-transform duration-500"
               />
             </div>
 
@@ -179,7 +187,7 @@ function About() {
             <div className="flex flex-col gap-5 py-10 sm:w-[40%] sm:h-full sm:pl-30">
               <div
                 ref={arrowRef}
-                className="relative h-50 w-full hidden sm:block "
+                className="relative h-[450px] w-52 hidden sm:block "
               >
                 <Image
                   className="object-contain"
@@ -189,13 +197,15 @@ function About() {
                 />
               </div>
               <div className="flex flex-col gap-5 sm:gap-10 sm:mt-30">
-                <Image
-                  ref={logoRef}
-                  src="/HomeLanding/interior-studio-about.webp"
-                  alt="interior-studio-about"
-                  width={150}
-                  height={150}
-                />
+                <div className="relative h-60 w-60">
+                  <Image
+                    className="object-cover"
+                    ref={logoRef}
+                    src="/HomeLanding/logo-about.png"
+                    alt="interior-studio-about"
+                    fill
+                  />
+                </div>
                 <p ref={studioNameRef} className="text-3xl font-bold">
                   {"Shyam Interior Studio".split("").map((letter, i) => (
                     <span key={i} className="inline-block opacity-0">

@@ -130,7 +130,7 @@ function FeatureSection() {
         <div ref={workParaRef} className="flex flex-col gap-5 sm:max-w-[300px]">
           <span
             className="relative inline-flex items-center gap-2 text-[#666666]
-            after:content-[''] after:block after:w-10 after:h-[1px]
+            after:content-[''] after:block after:w-10 after:h-px
             after:bg-[#666666] after:mb-[3px]"
           >
             SINCE 2019
@@ -149,7 +149,7 @@ function FeatureSection() {
         <MyfeaturedCard
           slug="drawing-room"
           className="sm:h-svh sm:w-full"
-          image="/home-feature/p7.webp"
+          image="/home-feature/drawing-room-01.jpeg"
           title="Drawing Room"
           location="Kolkata"
           year="2025"
@@ -157,7 +157,7 @@ function FeatureSection() {
         <MyfeaturedCard
           slug="bed-room"
           className="sm:h-[400px] sm:w-full sm:mt-30"
-          image="/home-feature/p7.webp"
+          image="/home-feature/bedroom-01.jpeg"
           title="Bedroom"
           location="Kolkata"
           year="2025"
@@ -165,9 +165,9 @@ function FeatureSection() {
         <MyfeaturedCard
           slug="bath-room"
           className="sm:h-[550px]"
-          image="/images/hero_page/p2.webp"
+          image="/home-feature/bathroom-01.jpeg"
           title="Bath Room"
-          location="Natre, New York"
+          location="Mumbai, Maharashtra"
           year="2022"
         />
 
@@ -176,16 +176,16 @@ function FeatureSection() {
           className="sm:h-[550px] sm:-mt-30"
           image="/images/hero_page/p6.webp"
           title="Dining Area"
-          location="Natre, New York"
+          location="Bangalore, Karnataka"
           year="2021"
         />
 
         <MyfeaturedCard
           slug="kitchen-room"
           className="sm:h-[400px] sm:w-full sm:mt-30"
-          image="/images/hero_page/p3.webp"
+          image="/home-feature/kitchen-01.jpg"
           title="Kitchen Suite"
-          location="Natre, New York"
+          location="Delhi, NCR"
           year="2023"
         />
 
@@ -193,8 +193,8 @@ function FeatureSection() {
           slug="reading-room"
           className="sm:h-screen sm:w-full"
           image="/images/hero_page/p5.webp"
-          title=""
-          location="Natre, New York"
+          title="Reading Room"
+          location="Pune, Maharashtra"
           year="2022"
         />
       </div>

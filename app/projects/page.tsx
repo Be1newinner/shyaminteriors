@@ -8,28 +8,28 @@ import gsap from "gsap";
 
 const projects = [
   {
-    src: "/images/hero_page/p1.webp",
+    src: "/home-feature/drawing-room-01.jpeg",
     slug: "drawing-room",
     title: "Drawing Room",
-    location: "Natre, New York",
+    location: "Kolkata, West Bengal",
     year: "2023",
     width: 600,
     height: 801,
   },
   {
-    src: "/images/hero_page/p4.webp",
+    src: "/home-feature/bedroom-01.jpeg",
     slug: "bed-room",
     title: "Bedroom",
-    location: "Natre, New York",
+    location: "Mumbai, Maharashtra",
     year: "2023",
     width: 550,
     height: 400,
   },
   {
-    src: "/images/hero_page/p2.webp",
+    src: "/home-feature/bathroom-01.jpeg",
     slug: "bath-room",
     title: "Bath Room",
-    location: "Natre, New York",
+    location: "Delhi, NCR",
     year: "2022",
     width: 380,
     height: 483,
@@ -38,7 +38,7 @@ const projects = [
     src: "/images/hero_page/p6.webp",
     slug: "dinning-space",
     title: "Dining Area",
-    location: "Natre, New York",
+    location: "Bangalore, Karnataka",
     year: "2021",
     width: 380,
     height: 483,
@@ -47,7 +47,7 @@ const projects = [
     src: "/images/hero_page/p3.webp",
     slug: "kitchen-room",
     title: "Kitchen Suite",
-    location: "Natre, New York",
+    location: "Hyderabad, Telangana",
     year: "2023",
     width: 550,
     height: 400,
@@ -56,7 +56,7 @@ const projects = [
     src: "/images/hero_page/p5.webp",
     slug: "office-area",
     title: "Office Area",
-    location: "Natre, New York",
+    location: "Pune, Maharashtra",
     year: "2022",
     width: 600,
     height: 801,
@@ -128,7 +128,7 @@ export default function ProjectPage() {
   const allVisibleItems = projects.map((p, i) => ({ ...p, originalIndex: i }));
   const visibleProjects = allVisibleItems.slice(
     0,
-    showAll ? projects.length : INITIAL_COUNT
+    showAll ? projects.length : INITIAL_COUNT,
   );
   const hasMore = !showAll;
 
