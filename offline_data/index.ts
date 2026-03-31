@@ -13,7 +13,7 @@ const allProjects: Record<string, (typeof drawingRoom)[0]> = {
   "bath-room": bathRoom[0],
   "dinning-space": dinningSpace[0],
   "kitchen-room": kitchenRoom[0],
-  "office-area": readingRoom[0],
+  "reading-room": readingRoom[0],
 };
 
 const allServices: Record<string, (typeof services)[0]> = {

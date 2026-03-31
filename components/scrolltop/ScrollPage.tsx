@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import { usePathname } from "next/navigation";
 import { ArrowUp } from "lucide-react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -11,6 +12,7 @@ gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 export default function ScrollTopButton() {
   const progressRef = useRef<SVGCircleElement>(null);
   const buttonRef = useRef<HTMLButtonElement>(null);
+  const pathname = usePathname();
 
   useEffect(() => {
     const circle = progressRef.current;
@@ -22,23 +24,41 @@ export default function ScrollTopButton() {
     circle.style.strokeDasharray = `${circumference}`;
     circle.style.strokeDashoffset = `${circumference}`;
 
-    gsap.to(circle, {
-      strokeDashoffset: 0,
-      ease: "none",
-      scrollTrigger: {
-        trigger: document.body,
-        start: "top top",
-        end: "bottom bottom",
-        scrub: true,
-      },
+    const ctx = gsap.context(() => {
+      gsap.to(circle, {
+        strokeDashoffset: 0,
+        ease: "none",
+        scrollTrigger: {
+          trigger: document.body,
+          start: "top top",
+          end: "bottom bottom",
+          scrub: true,
+          invalidateOnRefresh: true,
+        },
+      });
+
+      ScrollTrigger.create({
+        start: 300,
+        onEnter: () => gsap.to(buttonRef.current, { autoAlpha: 1, duration: 0.3 }),
+        onLeaveBack: () => gsap.to(buttonRef.current, { autoAlpha: 0, duration: 0.3 }),
+      });
     });
 
-    ScrollTrigger.create({
-      start: 300,
-      onEnter: () => gsap.to(buttonRef.current, { autoAlpha: 1 }),
-      onLeaveBack: () => gsap.to(buttonRef.current, { autoAlpha: 0 }),
-    });
-  }, []);
+    // Refresh ScrollTrigger multiple times to catch late-loading images/content
+    const refreshTrigger = () => ScrollTrigger.refresh();
+    
+    const timeouts = [
+      setTimeout(refreshTrigger, 100),
+      setTimeout(refreshTrigger, 500),
+      setTimeout(refreshTrigger, 1000),
+      setTimeout(refreshTrigger, 2000),
+    ];
+
+    return () => {
+      ctx.revert();
+      timeouts.forEach(clearTimeout);
+    };
+  }, [pathname]);
 
   const scrollTop = () => {
     gsap.to(window, {
