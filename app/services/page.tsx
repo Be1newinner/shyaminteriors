@@ -21,20 +21,30 @@ function page() {
       {/* service card */}
       <div className="flex flex-col gap-10 sm:flex-row sm:flex-wrap sm:justify-center py-10 *:hover:scale-105 *:transition-all *:duration-300">
         <ServicesCard
-          slug="living-area"
+          slug="industrial-design"
           id="01"
-          image="/home-services/living-area-01.jpeg"
-          title="LIVING AREA"
+          image="/home-services/industrial-design.jpeg"
+          title="INDUSTRIAL DESIGN"
+          description="Welcome to the Modern Urban Retreat project, where we are tasked with
+transforming a 3-bedroom apart..."
+          services={["UI/UX Design", "Research", "Mobile & Web App"]}
+        />
+
+        <ServicesCard
+          slug="corporate-design"
+          id="02"
+          image="/home-services/corporate-design.jpeg"
+          title="CORPORATE DESIGN"
           description="Welcome to the Modern Urban Retreat project, where we are tasked with
         transforming a 3-bedroom apart..."
           services={["UI/UX Design", "Research", "Mobile & Web App"]}
         />
 
         <ServicesCard
-          slug="3d-wall-design"
-          id="02"
-          image="/home-services/service-01.webp"
-          title="3D WALL DESIGN"
+          slug="residential-design"
+          id="03"
+          image="/home-services/residential-design.jpeg"
+          title="RESIDENTIAL DESIGN"
           description="Welcome to the Modern Urban Retreat project, where we are tasked with
         transforming a 3-bedroom apart..."
           services={["UI/UX Design", "Research", "Mobile & Web App"]}
@@ -42,43 +52,34 @@ function page() {
 
         <ServicesCard
           slug="custom-furniture"
-          id="03"
-          image="/home-services/service-01.webp"
+          id="04"
+          image="/home-services/custom-furniture.jpeg"
           title="CUSTOM FURNITURE"
           description="Welcome to the Modern Urban Retreat project, where we are tasked with
         transforming a 3-bedroom apart..."
           services={["UI/UX Design", "Research", "Mobile & Web App"]}
         />
 
+
         <ServicesCard
           slug="lighting-design"
-          id="04"
-          image="/home-services/service-01.webp"
+          id="05"
+          image="/home-services/lighting-design.jpg"
           title="LIGHTING DESIGN"
           description="Welcome to the Modern Urban Retreat project, where we are tasked with
         transforming a 3-bedroom apart..."
           services={["UI/UX Design", "Research", "Mobile & Web App"]}
         />
-
         <ServicesCard
           slug="wall-covering"
-          id="05"
-          image="/home-services/service-01.webp"
+          id="06"
+          image="/home-services/wall-covering.jpg"
           title="WALL COVERING"
           description="Welcome to the Modern Urban Retreat project, where we are tasked with
         transforming a 3-bedroom apart..."
           services={["UI/UX Design", "Research", "Mobile & Web App"]}
         />
-        <ServicesCard
-          slug="residential-design"
-          id="06"
-          image="/home-services/service-01.webp"
-          title="RESIDENTIAL DESIGN"
-          description="Welcome to the Modern Urban Retreat project, where we are tasked with
-        transforming a 3-bedroom apart..."
-          services={["UI/UX Design", "Research", "Mobile & Web App"]}
-        />
-        <ServicesCard
+        {/* <ServicesCard
           slug="corporate-design"
           id="07"
           image="/home-services/service-01.webp"
@@ -95,7 +96,7 @@ function page() {
           description="Welcome to the Modern Urban Retreat project, where we are tasked with
         transforming a 3-bedroom apart..."
           services={["UI/UX Design", "Research", "Mobile & Web App"]}
-        />
+        /> */}
       </div>
 
       {/* <section className="mt-10 border-t-[0.5px] border-[#666666] pt-10">

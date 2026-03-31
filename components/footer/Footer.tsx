@@ -1,5 +1,5 @@
 "use client";
-import { Facebook, Instagram, Linkedin, Twitter } from "lucide-react";
+import { Facebook, Instagram, Linkedin, Youtube } from "lucide-react";
 import React, { useEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
@@ -14,8 +14,8 @@ function Footer() {
           <div className="flex flex-col justify-center  gap-10 sm:flex-row sm:justify-between sm:items-center sm:gap-30">
             <div className="h-30 w-30 relative">
               <Image
-                className="object-contain"
-                src="/navigation/site-logo-light.webp"
+                className="object-contain scale-175"
+                src="/HomeLanding/logo-about.png"
                 alt="logo"
                 fill
               />
@@ -49,10 +49,18 @@ function Footer() {
           </p>
 
           <div className="flex gap-5 ">
-            <Facebook />
-            <Twitter />
-            <Instagram />
-            <Linkedin />
+            <a href="#">
+              <Facebook />
+            </a>
+            <a href="https://youtube.com/@shyamdesign-i7q?si=uNZ4qcETU4osAqSl">
+              <Youtube />
+            </a>
+            <a href="https://www.instagram.com/shyam_design287?igsh=MXVqam96OWFpZ2dvOQ==">
+              <Instagram />
+            </a>
+            <a href="#">
+              <Linkedin />
+            </a>
           </div>
         </div>
       </section>
