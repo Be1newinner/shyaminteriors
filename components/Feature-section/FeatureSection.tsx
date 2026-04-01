@@ -149,7 +149,7 @@ function FeatureSection() {
         <MyfeaturedCard
           slug="drawing-room"
           className="sm:h-svh sm:w-full"
-          image="/home-feature/drawing-room-01.jpeg"
+          image="/home-feature/drawing-room-1.jpg"
           title="Drawing Room"
           location="Kolkata"
           year="2025"
@@ -157,7 +157,7 @@ function FeatureSection() {
         <MyfeaturedCard
           slug="bed-room"
           className="sm:h-[400px] sm:w-full sm:mt-30"
-          image="/home-feature/bedroom-01.jpeg"
+          image="/home-feature/bed-room-1.jpg"
           title="Bedroom"
           location="Kolkata"
           year="2025"
@@ -165,7 +165,7 @@ function FeatureSection() {
         <MyfeaturedCard
           slug="bath-room"
           className="sm:h-[550px]"
-          image="/home-feature/bathroom-01.jpeg"
+          image="/home-feature/bath-room-1.jpg"
           title="Bath Room"
           location="Mumbai, Maharashtra"
           year="2022"
@@ -174,7 +174,7 @@ function FeatureSection() {
         <MyfeaturedCard
           slug="dinning-space"
           className="sm:h-[550px] sm:-mt-30"
-          image="/images/hero_page/p6.webp"
+          image="/home-feature/dinning-room-1.jpg"
           title="Dining Area"
           location="Bangalore, Karnataka"
           year="2021"
