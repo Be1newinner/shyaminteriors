@@ -13,6 +13,8 @@ const projects = [
     title: "Drawing Room",
     location: "Kolkata, West Bengal",
     year: "2023",
+    width: 600,
+    height: 801,
   },
   {
     src: "/home-feature/bed-room-1.jpg",
@@ -20,6 +22,8 @@ const projects = [
     title: "Bedroom",
     location: "Mumbai, Maharashtra",
     year: "2023",
+    width: 550,
+    height: 400,
   },
   {
     src: "/home-feature/bath-room-1.jpg",
@@ -27,6 +31,8 @@ const projects = [
     title: "Bath Room",
     location: "Delhi, NCR",
     year: "2022",
+    width: 380,
+    height: 483,
   },
   {
     src: "/home-feature/dinning-room-1.jpg",
@@ -34,6 +40,8 @@ const projects = [
     title: "Dining Area",
     location: "Bangalore, Karnataka",
     year: "2021",
+    width: 380,
+    height: 483,
   },
   {
     src: "/home-feature/kitchen-01.jpg",
@@ -41,6 +49,8 @@ const projects = [
     title: "Kitchen Suite",
     location: "Hyderabad, Telangana",
     year: "2023",
+    width: 550,
+    height: 400,
   },
   {
     src: "/images/hero_page/p5.webp",
@@ -48,6 +58,8 @@ const projects = [
     title: "Office Area",
     location: "Pune, Maharashtra",
     year: "2022",
+    width: 600,
+    height: 801,
   },
 ];
 
@@ -59,6 +71,8 @@ function ProjectCard({
   title,
   location,
   year,
+  width,
+  height,
   index,
 }: {
   src: string;
@@ -66,6 +80,8 @@ function ProjectCard({
   title: string;
   location: string;
   year: string;
+  width: number;
+  height: number;
   index: number;
 }) {
   const isNew = index >= INITIAL_COUNT;
@@ -77,14 +93,15 @@ function ProjectCard({
     >
       {/* Image — fills full column width, aspect ratio from real dimensions */}
       <div
-        className="relative w-full overflow-hidden bg-gray-100 aspect-[4/5] sm:aspect-[3/4] md:aspect-[4/5] object-cover"
+        className="w-full overflow-hidden bg-gray-100"
+        style={{ aspectRatio: `${width}/${height}` }}
       >
         <Link href={`/projects/${slug}`} className="block w-full h-full">
           <Image
             src={src}
             alt={title}
-            fill
-            sizes="(max-width: 768px) 100vw, 50vw"
+            width={width}
+            height={height}
             className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
           />
         </Link>
