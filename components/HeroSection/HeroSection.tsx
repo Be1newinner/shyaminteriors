@@ -164,16 +164,22 @@ function HeroSection() {
           <div className="relative">
             <div className="h-[70vh] w-full relative sm:h-screen">
               <Image
-                className="object-cover -z-1"
-                src="/HomeLanding/hero-bg.webp"
+                className="object-cover -z-10"
+                src="/HomeLanding/home-hero.jpg"
                 alt="hero-section"
                 fill
+                priority
               />
+              {/* Overlay for better text readability */}
+              <div className="absolute inset-0 bg-black/40 z-0" />
             </div>
 
             {/* text part */}
-            <div className="w-full absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col gap-15 text-center">
-              <p ref={paraRef} className="text-2xl font-semibold">
+            <div className="w-full absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col gap-6 sm:gap-10 text-center px-4 z-10">
+              <p
+                ref={paraRef}
+                className="text-sm sm:text-xl md:text-2xl text-white font-medium tracking-[0.2em] sm:tracking-[0.3em] uppercase drop-shadow-md"
+              >
                 {paraText.split("").map((char, i) => (
                   <span key={i} className="letter inline-block">
                     {char === " " ? "\u00A0" : char}
@@ -182,13 +188,26 @@ function HeroSection() {
               </p>
               <h1
                 ref={titleRef}
-                className="text-7xl font-bold sm:text-9xl overflow-hidden"
+                className="text-5xl text-white font-black sm:text-7xl md:text-8xl lg:text-[10rem] overflow-hidden drop-shadow-2xl"
+                style={{ textShadow: "0 10px 30px rgba(0,0,0,0.8)" }}
               >
-                {titleText.split("").map((char, i) => (
-                  <span key={i} className="letter inline-block">
-                    {char === " " ? "\u00A0" : char}
-                  </span>
-                ))}
+                {titleText.split("").map((char, i) => {
+                  if (char === " ") {
+                    return (
+                      <React.Fragment key={i}>
+                        <span className="letter hidden sm:inline-block">
+                          {"\u00A0"}
+                        </span>
+                        <br className="sm:hidden" />
+                      </React.Fragment>
+                    );
+                  }
+                  return (
+                    <span key={i} className="letter inline-block">
+                      {char}
+                    </span>
+                  );
+                })}
               </h1>
             </div>
           </div>
