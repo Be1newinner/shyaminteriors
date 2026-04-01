@@ -8,49 +8,39 @@ import gsap from "gsap";
 
 const projects = [
   {
-    src: "/home-feature/drawing-room-01.jpeg",
+    src: "/home-feature/drawing-room-1.jpg",
     slug: "drawing-room",
     title: "Drawing Room",
     location: "Kolkata, West Bengal",
     year: "2023",
-    width: 600,
-    height: 801,
   },
   {
-    src: "/home-feature/bedroom-01.jpeg",
+    src: "/home-feature/bed-room-1.jpg",
     slug: "bed-room",
     title: "Bedroom",
     location: "Mumbai, Maharashtra",
     year: "2023",
-    width: 550,
-    height: 400,
   },
   {
-    src: "/home-feature/bathroom-01.jpeg",
+    src: "/home-feature/bath-room-1.jpg",
     slug: "bath-room",
     title: "Bath Room",
     location: "Delhi, NCR",
     year: "2022",
-    width: 380,
-    height: 483,
   },
   {
-    src: "/images/hero_page/p6.webp",
+    src: "/home-feature/dinning-room-1.jpg",
     slug: "dinning-space",
     title: "Dining Area",
     location: "Bangalore, Karnataka",
     year: "2021",
-    width: 380,
-    height: 483,
   },
   {
-    src: "/images/hero_page/p3.webp",
+    src: "/home-feature/kitchen-01.jpg",
     slug: "kitchen-room",
     title: "Kitchen Suite",
     location: "Hyderabad, Telangana",
     year: "2023",
-    width: 550,
-    height: 400,
   },
   {
     src: "/images/hero_page/p5.webp",
@@ -58,8 +48,6 @@ const projects = [
     title: "Office Area",
     location: "Pune, Maharashtra",
     year: "2022",
-    width: 600,
-    height: 801,
   },
 ];
 
@@ -71,8 +59,6 @@ function ProjectCard({
   title,
   location,
   year,
-  width,
-  height,
   index,
 }: {
   src: string;
@@ -80,29 +66,25 @@ function ProjectCard({
   title: string;
   location: string;
   year: string;
-  width: number;
-  height: number;
   index: number;
 }) {
   const isNew = index >= INITIAL_COUNT;
 
   return (
     <div
-      className={`flex flex-col gap-4 mb-14 w-full ${
-        isNew ? "new-project-card opacity-0 translate-y-10" : ""
-      }`}
+      className={`flex flex-col gap-4 mb-14 w-full ${isNew ? "new-project-card opacity-0 translate-y-10" : ""
+        }`}
     >
       {/* Image — fills full column width, aspect ratio from real dimensions */}
       <div
-        className="w-full overflow-hidden bg-gray-100"
-        style={{ aspectRatio: `${width}/${height}` }}
+        className="relative w-full overflow-hidden bg-gray-100 aspect-[4/5] sm:aspect-[3/4] md:aspect-[4/5] object-cover"
       >
         <Link href={`/projects/${slug}`} className="block w-full h-full">
           <Image
             src={src}
             alt={title}
-            width={width}
-            height={height}
+            fill
+            sizes="(max-width: 768px) 100vw, 50vw"
             className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
           />
         </Link>
