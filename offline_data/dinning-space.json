@@ -29,16 +29,10 @@
         ],
         "images": [
             {
-                "src": "/images/project/dinning_space/dinning-room-1.jpg",
+                "src": "/images/project/dinning_space/dinning-room-2.jpg",
                 "alt": "Drawing Room",
                 "width": "1720px",
                 "height": "877.91px"
-            },
-            {
-                "src": "/images/project/dinning_space/dinning-room-2.jpg",
-                "alt": "Drawing Room",
-                "width": "850px",
-                "height": "950px"
             },
             {
                 "src": "/images/project/dinning_space/dinning-room-3.jpg",
@@ -49,17 +43,23 @@
             {
                 "src": "/images/project/dinning_space/dinning-room-4.jpg",
                 "alt": "Drawing Room",
+                "width": "850px",
+                "height": "950px"
+            },
+            {
+                "src": "/images/project/dinning_space/dinning-room-5.jpg",
+                "alt": "Drawing Room",
                 "width": "1720px",
                 "height": "900px"
             },
             {
-                "src": "/images/project/dinning_space/dinning-room-5.jpg",
+                "src": "/images/project/dinning_space/dinning-room-6.jpg",
                 "alt": "Drawing Room",
                 "width": "850px",
                 "height": "950px"
             },
             {
-                "src": "/images/project/dinning_space/dinning-room-6.jpg",
+                "src": "/images/project/dinning_space/dinning-room-7.jpg",
                 "alt": "Drawing Room",
                 "width": "850px",
                 "height": "950px"

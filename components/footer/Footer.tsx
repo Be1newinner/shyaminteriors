@@ -37,7 +37,7 @@ function Footer() {
               {/* email */}
               <p>shyamdesign287@gmail.com</p>
               {/* phone */}
-              <p>+91 8820420956</p>
+              <p>+91 8810420956</p>
             </div>
           </div>
         </div>
@@ -49,18 +49,18 @@ function Footer() {
           </p>
 
           <div className="flex gap-5 ">
-            <a href="#">
+            {/* <a href="#">
               <Facebook />
-            </a>
+            </a> */}
             <a href="https://youtube.com/@shyamdesign-i7q?si=uNZ4qcETU4osAqSl">
               <Youtube />
             </a>
             <a href="https://www.instagram.com/shyam_design287?igsh=MXVqam96OWFpZ2dvOQ==">
               <Instagram />
             </a>
-            <a href="#">
+            {/* <a href="#">
               <Linkedin />
-            </a>
+            </a> */}
           </div>
         </div>
       </section>

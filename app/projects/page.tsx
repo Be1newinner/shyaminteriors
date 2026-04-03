@@ -8,7 +8,7 @@ import gsap from "gsap";
 
 const projects = [
   {
-    src: "/home-feature/drawing-room-01.jpeg",
+    src: "/home-feature/drawing-room-1.jpg",
     slug: "drawing-room",
     title: "Drawing Room",
     location: "Kolkata, West Bengal",
@@ -17,7 +17,7 @@ const projects = [
     height: 801,
   },
   {
-    src: "/home-feature/bedroom-01.jpeg",
+    src: "/home-feature/bed-room-1.jpg",
     slug: "bed-room",
     title: "Bedroom",
     location: "Mumbai, Maharashtra",
@@ -26,7 +26,7 @@ const projects = [
     height: 400,
   },
   {
-    src: "/home-feature/bathroom-01.jpeg",
+    src: "/home-feature/bath-room-1.jpg",
     slug: "bath-room",
     title: "Bath Room",
     location: "Delhi, NCR",
@@ -35,7 +35,7 @@ const projects = [
     height: 483,
   },
   {
-    src: "/images/hero_page/p6.webp",
+    src: "/home-feature/dinning-room-1.jpg",
     slug: "dinning-space",
     title: "Dining Area",
     location: "Bangalore, Karnataka",
@@ -44,7 +44,7 @@ const projects = [
     height: 483,
   },
   {
-    src: "/images/hero_page/p3.webp",
+    src: "/home-feature/kitchen-01.jpg",
     slug: "kitchen-room",
     title: "Kitchen Suite",
     location: "Hyderabad, Telangana",
@@ -88,9 +88,8 @@ function ProjectCard({
 
   return (
     <div
-      className={`flex flex-col gap-4 mb-14 w-full ${
-        isNew ? "new-project-card opacity-0 translate-y-10" : ""
-      }`}
+      className={`flex flex-col gap-4 mb-14 w-full ${isNew ? "new-project-card opacity-0 translate-y-10" : ""
+        }`}
     >
       {/* Image — fills full column width, aspect ratio from real dimensions */}
       <div
