@@ -72,22 +72,15 @@ function MyExpertiseServices() {
 
   // smooth service change animation
   const changeService = (service: any) => {
-    const tl = gsap.timeline();
+    if (service.id === currentService.id) return;
 
-    tl.to([imageRef.current, descRef.current], {
-      opacity: 0,
-      y: 40,
-      duration: 0.3,
-      ease: "power2.out",
-    });
+    // Update state immediately so images start cross-fading via CSS
+    setCurrentService(service);
 
-    tl.call(() => {
-      setCurrentService(service);
-    });
-
-    tl.fromTo(
-      [imageRef.current, descRef.current],
-      { opacity: 0, y: -40 },
+    // Animate the description text separately
+    gsap.fromTo(
+      descRef.current,
+      { opacity: 0, y: 20 },
       {
         opacity: 1,
         y: 0,
@@ -122,9 +115,8 @@ function MyExpertiseServices() {
               <li
                 key={service.id}
                 onClick={() => changeService(service)}
-                className={`flex cursor-pointer gap-4 sm:gap-20 items-center sm:text-5xl ${
-                  isActive(service.id) ? "text-white" : ""
-                }`}
+                className={`flex cursor-pointer gap-4 sm:gap-20 items-center sm:text-5xl ${isActive(service.id) ? "text-white" : ""
+                  }`}
               >
                 <span className="text-2xl">{service.id}</span>
                 <span>{service.title}</span>
@@ -155,12 +147,23 @@ function MyExpertiseServices() {
         {/* right side image */}
         <div className="flex flex-col gap-5 mt-15 sm:basis-1/2 sm:mt-0">
           <div ref={imageRef} className="w-full h-[60vh] relative sm:h-screen">
-            <Image
-              className="object-cover"
-              src={currentService.image}
-              alt={currentService.title}
-              fill
-            />
+            {myServices.map((service) => (
+              <div
+                key={service.id}
+                className={`absolute inset-0 transition-opacity duration-500 ease-in-out ${isActive(service.id) ? "opacity-100 z-10" : "opacity-0 z-0"
+                  }`}
+              >
+                <Image
+                  className="object-cover"
+                  src={service.image}
+                  alt={service.title}
+                  fill
+                  quality={75} // Reduced quality for faster initial transfer
+                  priority={service.id === "01"}
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                />
+              </div>
+            ))}
           </div>
         </div>
       </div>

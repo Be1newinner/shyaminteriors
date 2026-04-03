@@ -3,7 +3,7 @@
 import { useState, useRef, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { X } from "lucide-react";
+import { InstagramIcon, X, Youtube } from "lucide-react";
 import gsap from "gsap";
 
 const Navbar = () => {
@@ -74,7 +74,7 @@ const Navbar = () => {
           <div className="relative h-30 w-30">
             <Image
               className="object-cover"
-              src="/navigation/logo.png"
+              src="/HomeLanding/logo-about.png"
               alt="logo"
               fill
             />
@@ -140,7 +140,7 @@ const Navbar = () => {
                 shyamdesign287@gmail.com
               </p>
               <p className="text-2xl hover:text-gray-300 transition-colors cursor-pointer">
-                +91 8820420956
+                +91 8810420956
               </p>
             </div>
 
@@ -156,23 +156,23 @@ const Navbar = () => {
             </div>
 
             <div className="flex gap-4 mt-4">
-              <a
+              {/* <a
                 href="#"
                 className="w-14 h-14 rounded-full border border-[#666] flex items-center justify-center hover:bg-white hover:text-black transition-all duration-300 hover:scale-110"
               >
                 <span className="text-sm font-semibold">FB</span>
-              </a>
+              </a> */}
               <a
-                href="#"
+                href="https://www.instagram.com/shyam_design287?igsh=MXVqam96OWFpZ2dvOQ=="
                 className="w-14 h-14 rounded-full border border-[#666] flex items-center justify-center hover:bg-white hover:text-black transition-all duration-300 hover:scale-110"
               >
-                <span className="text-sm font-semibold">IG</span>
+                <span className="text-sm font-semibold"><InstagramIcon /></span>
               </a>
               <a
-                href="#"
+                href="https://youtube.com/@shyamdesign-i7q?si=uNZ4qcETU4osAqSl"
                 className="w-14 h-14 rounded-full border border-[#666] flex items-center justify-center hover:bg-white hover:text-black transition-all duration-300 hover:scale-110"
               >
-                <span className="text-sm font-semibold">IN</span>
+                <span className="text-sm font-semibold"><Youtube /></span>
               </a>
             </div>
           </div>

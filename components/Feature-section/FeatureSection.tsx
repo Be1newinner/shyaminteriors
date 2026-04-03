@@ -192,7 +192,7 @@ function FeatureSection() {
         <MyfeaturedCard
           slug="reading-room"
           className="sm:h-screen sm:w-full"
-          image="/images/hero_page/p5.webp"
+          image="/home-feature/reading-room.jpeg"
           title="Reading Room"
           location="Pune, Maharashtra"
           year="2022"
